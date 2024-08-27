@@ -60,7 +60,6 @@ namespace TPS.Mediatiors
         private void Update()
         {
             var movementInput = _gameInput.Player.Movement.ReadValue<Vector2>();
-
             _characterMovement.MovementInput = movementInput;
 
             var ray = _mainCamera.ScreenPointToRay(_gameInput.Player.PointerPosition.ReadValue<Vector2>());
@@ -68,8 +67,13 @@ namespace TPS.Mediatiors
             if (_plane.Raycast(ray, out float enter))
             {
                 var worldPosition = ray.GetPoint(enter);
+                var dir = (worldPosition - transform.position).normalized;
+                // Method 1 to calculate the angle from player position to world position for 3D games
+                // Quaternion.LookRotation(dir).eulerAngles.y;
 
-                Debug.DrawLine(worldPosition, worldPosition + Vector3.right);
+                // Method 2
+                var angle = -Mathf.Atan2(dir.z, dir.x) * Mathf.Rad2Deg +90;
+                _characterMovement.Rotation = angle;
             }
         }
     }
