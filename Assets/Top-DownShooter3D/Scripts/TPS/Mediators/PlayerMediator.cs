@@ -13,9 +13,13 @@ namespace TPS.Mediatiors
         [Header(" Data ")]
         private CharacterMovement _characterMovement;
         private GameInput _gameInput;
+        private Plane _plane;
 
         [Header(" Settings ")]
         [SerializeField] private float _dodgePower;
+
+        [Header(" Elements ")]
+        private Camera _mainCamera;
 
 
 
@@ -24,6 +28,10 @@ namespace TPS.Mediatiors
             _characterMovement = GetComponent<CharacterMovement>();
 
             _gameInput = new GameInput();
+
+            _plane = new Plane(Vector3.up, Vector3.zero);
+
+            _mainCamera = Camera.main;
         }
 
 
