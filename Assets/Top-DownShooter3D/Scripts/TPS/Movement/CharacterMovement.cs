@@ -13,6 +13,8 @@ namespace TPS.Movement
         public Vector2 MovementInput { get; set; }
         public Vector3 ExternalForces { get; set; }
 
+        public float Rotation { get; set; }
+
         [Header(" Settings ")]
         [SerializeField] private float _moveSpeed = 4f;
 
@@ -27,6 +29,8 @@ namespace TPS.Movement
         private void Update()
         {
             var movement = new Vector3(MovementInput.x, 0, MovementInput.y);
+
+            transform.eulerAngles = new Vector3(0, Rotation);
 
             _characterController.SimpleMove(movement * _moveSpeed + ExternalForces);
 
