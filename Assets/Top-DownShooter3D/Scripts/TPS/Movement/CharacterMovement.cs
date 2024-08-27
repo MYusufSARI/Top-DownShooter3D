@@ -10,13 +10,14 @@ namespace TPS.Movement
         [Header(" Elements ")]
         private CharacterController _characterController;
 
-        public Vector2 MovementInput { get; set; }
-        public Vector3 ExternalForces { get; set; }
-
-        public float Rotation { get; set; }
-
         [Header(" Settings ")]
         [SerializeField] private float _moveSpeed = 4f;
+
+        public Vector2 MovementInput { get; set; }
+        public Vector3 ExternalForces { get; set; }
+        public float Rotation { get; set; }
+
+        public Vector3 Velocity => _characterController.velocity;
 
 
 
