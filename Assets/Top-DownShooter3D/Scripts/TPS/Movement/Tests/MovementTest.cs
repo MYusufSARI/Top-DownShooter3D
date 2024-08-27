@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TPS.Input;
+using System;
 
 namespace TPS.Movement.Test
 {
@@ -14,16 +16,43 @@ namespace TPS.Movement.Test
         [Header(" Elements ")]
         [SerializeField] private CharacterMovement _characterMovement;
 
+        [Header(" Data ")]
+        private GameInput _gameInput;
+
+
+
+        private void Awake()
+        {
+            _gameInput = new GameInput();
+        }
+
+
+        private void OnEnable()
+        {
+            _gameInput.Enable();
+
+            _gameInput.Player.Dodge.performed += OnDodgeButtonPressed;
+        }
+
+
+        private void OnDisable()
+        {
+            _gameInput.Disable();
+
+            _gameInput.Player.Dodge.performed -= OnDodgeButtonPressed;
+        }
+
+
+        private void OnDodgeButtonPressed(InputAction.CallbackContext context)
+        {
+            _characterMovement.ExternalForces += _externalForceValue;
+        }
 
 
         private void Update()
         {
-            if (Keyboard.current.spaceKey.wasPressedThisFrame)
-            {
-                _characterMovement.ExternalForces += _externalForceValue;
-            }
-
-            _characterMovement.MovementInput = _movementInput;
+            var input = _gameInput.Player.Movement.ReadValue<Vector2>();
+            _characterMovement.MovementInput = input;
         }
     }
 }

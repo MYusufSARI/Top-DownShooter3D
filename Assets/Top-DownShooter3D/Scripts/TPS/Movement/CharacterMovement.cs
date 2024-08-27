@@ -13,6 +13,9 @@ namespace TPS.Movement
         public Vector2 MovementInput { get; set; }
         public Vector3 ExternalForces { get; set; }
 
+        [Header(" Settings ")]
+        [SerializeField] private float _moveSpeed = 4f;
+
 
 
         private void Awake()
@@ -25,7 +28,7 @@ namespace TPS.Movement
         {
             var movement = new Vector3(MovementInput.x, 0, MovementInput.y);
 
-            _characterController.SimpleMove(movement + ExternalForces);
+            _characterController.SimpleMove(movement * _moveSpeed + ExternalForces);
 
             ExternalForces = Vector3.Lerp(ExternalForces, Vector3.zero, 9 * Time.deltaTime);
         }
