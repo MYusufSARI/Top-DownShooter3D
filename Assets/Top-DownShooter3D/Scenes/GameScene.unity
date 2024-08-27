@@ -395,6 +395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa7d57973204d4e02aedf8261adba9c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _moveSpeed: 4
 --- !u!1 &861139906
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,6 +768,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementInput: {x: 0, y: 0}
+  _externalForceValue: {x: 0, y: 0, z: 0}
   _characterMovement: {fileID: 720538878}
 --- !u!1 &2066466152
 GameObject:
