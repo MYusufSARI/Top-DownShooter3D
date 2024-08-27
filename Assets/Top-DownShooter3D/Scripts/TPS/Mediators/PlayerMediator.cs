@@ -63,7 +63,14 @@ namespace TPS.Mediatiors
 
             _characterMovement.MovementInput = movementInput;
 
-            var ray = _mainCamera.ScreenPointToRay();
+            var ray = _mainCamera.ScreenPointToRay(_gameInput.Player.PointerPosition.ReadValue<Vector2>());
+
+            if (_plane.Raycast(ray, out float enter))
+            {
+                var worldPosition = ray.GetPoint(enter);
+
+                Debug.DrawLine(worldPosition, worldPosition + Vector3.right);
+            }
         }
     }
 }
