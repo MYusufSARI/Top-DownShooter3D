@@ -62,6 +62,8 @@ namespace TPS.Mediatiors
             var movementInput = _gameInput.Player.Movement.ReadValue<Vector2>();
 
             _characterMovement.MovementInput = movementInput;
+
+            var ray = _mainCamera.ScreenPointToRay();
         }
     }
 }
