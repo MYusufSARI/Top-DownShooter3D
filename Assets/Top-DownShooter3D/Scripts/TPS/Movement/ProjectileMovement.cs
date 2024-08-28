@@ -58,8 +58,11 @@ namespace TPS.Movement
 
                 targetPosition = hit.point;
 
-                var reflectedDirection = Vector3.Reflect(direction, hit.normal);
-                transform.forward = reflectedDirection;
+                if (ShouldBounce)
+                {
+                    var reflectedDirection = Vector3.Reflect(direction, hit.normal);
+                    transform.forward = reflectedDirection;
+                }
             }
 
             Debug.DrawLine(transform.position, targetPosition, Color.red);
