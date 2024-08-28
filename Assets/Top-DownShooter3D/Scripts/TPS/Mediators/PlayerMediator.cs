@@ -12,6 +12,7 @@ namespace TPS.Mediatiors
     {
         [Header(" Data ")]
         private CharacterMovement _characterMovement;
+        private Shooter _shooter;
         private GameInput _gameInput;
         private Plane _plane;
 
@@ -27,6 +28,8 @@ namespace TPS.Mediatiors
         {
             _characterMovement = GetComponent<CharacterMovement>();
 
+            _shooter = GetComponent<Shooter>();
+
             _gameInput = new GameInput();
 
             _plane = new Plane(Vector3.up, Vector3.zero);
@@ -40,6 +43,8 @@ namespace TPS.Mediatiors
             _gameInput.Enable();
 
             _gameInput.Player.Dodge.performed += OnDodgeRequested;
+
+            _gameInput.Player.Shoot.performed += OnShootRequested;
         }
 
 
@@ -48,6 +53,14 @@ namespace TPS.Mediatiors
             _gameInput.Disable();
 
             _gameInput.Player.Dodge.performed -= OnDodgeRequested;
+
+            _gameInput.Player.Shoot.performed -= OnShootRequested;
+        }
+
+
+        private void OnShootRequested(InputAction.CallbackContext context)
+        {
+            _shooter.Shoot();
         }
 
 
