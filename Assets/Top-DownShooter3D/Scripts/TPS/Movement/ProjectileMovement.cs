@@ -8,6 +8,7 @@ namespace TPS.Movement
     {
         [Header(" Settings ")]
         [SerializeField] private float _speed;
+        [SerializeField] private float _pushPower;
         [SerializeField] private bool _shouldDestroyOnCollision;
         [SerializeField] private bool _shouldDisableOnCollision;
         [SerializeField] private bool _shouldBounce;
@@ -46,6 +47,11 @@ namespace TPS.Movement
 
             if (Physics.Raycast(transform.position, direction,out var hit, distance))
             {
+                if (hit.rigidbody)
+                {
+                    hit.rigidbody.AddForceAtPosition(-hit.normal * _speed * _pushPower, hit.point, ForceMode.Impulse);
+                }
+
                 if (ShouldDestroyOnCollision)
                 {
                     Destroy(gameObject);
