@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1276597671551717662}
   - component: {fileID: 1781792619238896369}
+  - component: {fileID: 6323297051466104529}
   m_Layer: 0
   m_Name: PF_BasicProjectile
   m_TagString: Untagged
@@ -50,6 +51,20 @@ MonoBehaviour:
   _shouldDestroyOnCollision: 0
   _shouldDisableOnCollision: 0
   _shouldBounce: 1
+  _movementPlane: {x: 1, y: 0, z: 1}
+--- !u!114 &6323297051466104529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4925288048774470117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ea00b3778afd441ead2a2a29e549838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 1
 --- !u!1 &5705767631537515316
 GameObject:
   m_ObjectHideFlags: 0

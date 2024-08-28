@@ -44,7 +44,6 @@ namespace TPS.Mediatiors
 
             _gameInput.Player.Dodge.performed += OnDodgeRequested;
 
-            _gameInput.Player.Shoot.performed += OnShootRequested;
         }
 
 
@@ -53,8 +52,6 @@ namespace TPS.Mediatiors
             _gameInput.Disable();
 
             _gameInput.Player.Dodge.performed -= OnDodgeRequested;
-
-            _gameInput.Player.Shoot.performed -= OnShootRequested;
         }
 
 
@@ -71,6 +68,18 @@ namespace TPS.Mediatiors
 
 
         private void Update()
+        {
+            HandleMovement();
+
+            if (_gameInput.Player.Shoot.IsPressed())
+            {
+                _shooter.Shoot();
+            }
+
+        }
+
+
+        private void HandleMovement()
         {
             var movementInput = _gameInput.Player.Movement.ReadValue<Vector2>();
             _characterMovement.MovementInput = movementInput;
@@ -101,7 +110,6 @@ namespace TPS.Mediatiors
                     _characterMovement.Rotation = angle;
                 }
             }
-
         }
     }
 }

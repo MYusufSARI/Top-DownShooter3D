@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace TPS.Movement
         [SerializeField] private bool _shouldDestroyOnCollision;
         [SerializeField] private bool _shouldDisableOnCollision;
         [SerializeField] private bool _shouldBounce;
+        [SerializeField] private Vector3 _movementPlane = Vector3.one;
 
         public float Speed
         {
@@ -38,14 +40,24 @@ namespace TPS.Movement
         }
 
 
+        public event Action<RaycastHit> OnImpacted;
+
+
 
         private void Update()
         {
             var direction = transform.forward;
+
+            direction.x *= _movementPlane.x;
+            direction.y *= _movementPlane.y;
+            direction.z *= _movementPlane.z;
+
+            direction.Normalize();
+
             var distance = _speed * Time.deltaTime;
             var targetPosition = transform.position + direction * distance;
 
-            if (Physics.Raycast(transform.position, direction,out var hit, distance))
+            if (Physics.Raycast(transform.position, direction, out var hit, distance))
             {
                 if (hit.rigidbody)
                 {
@@ -63,6 +75,8 @@ namespace TPS.Movement
                 }
 
                 targetPosition = hit.point;
+
+                OnImpacted?.Invoke(hit);
 
                 if (ShouldBounce)
                 {

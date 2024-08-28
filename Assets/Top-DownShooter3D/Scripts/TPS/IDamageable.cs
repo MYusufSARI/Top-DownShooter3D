@@ -7,6 +7,6 @@ namespace TPS
 
     public interface IDamageable
     {
-        void ApplyDamage(float damage, GameObject cause = null);
+        void ApplyDamage(float damage, GameObject causer = null);
     }
 }
