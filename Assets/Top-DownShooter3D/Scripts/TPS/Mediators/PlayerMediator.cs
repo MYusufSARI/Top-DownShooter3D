@@ -64,17 +64,31 @@ namespace TPS.Mediatiors
 
             var ray = _mainCamera.ScreenPointToRay(_gameInput.Player.PointerPosition.ReadValue<Vector2>());
 
-            if (_plane.Raycast(ray, out float enter))
-            {
-                var worldPosition = ray.GetPoint(enter);
-                var dir = (worldPosition - transform.position).normalized;
-                // Method 1 to calculate the angle from player position to world position for 3D games
-                // Quaternion.LookRotation(dir).eulerAngles.y;
+            var gamePadLookDir = _gameInput.Player.Look.ReadValue<Vector2>();
 
-                // Method 2
-                var angle = -Mathf.Atan2(dir.z, dir.x) * Mathf.Rad2Deg +90;
+            if (gamePadLookDir.magnitude > 0.1f)
+            {
+                var angle = -Mathf.Atan2(gamePadLookDir.y, gamePadLookDir.x) * Mathf.Rad2Deg + 90;
+
                 _characterMovement.Rotation = angle;
             }
+
+            else
+            {
+                if (_plane.Raycast(ray, out float enter))
+                {
+                    var worldPosition = ray.GetPoint(enter);
+                    var dir = (worldPosition - transform.position).normalized;
+                    // Method 1 to calculate the angle from player position to world position for 3D games
+                    // Quaternion.LookRotation(dir).eulerAngles.y;
+
+                    // Method 2
+                    var angle = -Mathf.Atan2(dir.z, dir.x) * Mathf.Rad2Deg + 90;
+
+                    _characterMovement.Rotation = angle;
+                }
+            }
+
         }
     }
 }
