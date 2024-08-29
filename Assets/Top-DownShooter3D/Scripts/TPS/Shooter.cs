@@ -81,7 +81,7 @@ namespace TPS
                 projectileToInstantiate = _weapon.ProjectilePrefab;
             }
 
-            var inst = Instantiate(projectileToInstantiate, _shootTransform.position, _shootTransform.rotation);
+            var inst = Instantiate(projectileToInstantiate, _activeWeaponGraphics.ShootTransform.position, _activeWeaponGraphics.ShootTransform.rotation);
 
             var rand = Random.value;
             var maxAngle = 30 - 30 * Mathf.Max(_weapon.Accuracy - _recoilValue, 0);

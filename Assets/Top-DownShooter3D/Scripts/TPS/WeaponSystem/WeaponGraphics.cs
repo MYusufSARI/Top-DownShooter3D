@@ -7,8 +7,8 @@ namespace TPS.WeaponSystem
     public class WeaponGraphics : MonoBehaviour
     {
         [Header(" Settings ")]
-        [SerializeField] private Transform _shootPosition;
+        [SerializeField] private Transform _shootTransform;
 
-        public Transform ShootPosition => _shootPosition;
+        public Transform ShootTransform => _shootTransform;
     }
 }

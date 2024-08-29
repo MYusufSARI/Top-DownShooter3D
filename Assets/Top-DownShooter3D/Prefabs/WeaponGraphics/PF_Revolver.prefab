@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7600eb65d9bd49adb78c1f39654a2d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shootPosition: {fileID: 8921286696053574814}
+  _shootTransform: {fileID: 8921286696053574814}
 --- !u!1 &6485897835615806231
 GameObject:
   m_ObjectHideFlags: 0

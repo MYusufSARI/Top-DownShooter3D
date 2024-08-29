@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7600eb65d9bd49adb78c1f39654a2d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shootPosition: {fileID: 8409156467870380119}
+  _shootTransform: {fileID: 8409156467870380119}
 --- !u!1001 &4909500903629595090
 PrefabInstance:
   m_ObjectHideFlags: 0
