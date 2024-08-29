@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
+using TPS.Movement;
 
 namespace TPS
 {
+    [RequireComponent(typeof(CinemachineImpulseSource))]
     public class ExplosiveBarrel : MonoBehaviour, IDamageable
     {
         [Header(" Settings ")]
@@ -12,11 +15,20 @@ namespace TPS
         [SerializeField] private float _explosionDamage = 5f;
         [SerializeField] private float _explosionForce = 50f;
         [SerializeField] private float _delayBeforeExplosion = 1f;
+        [SerializeField] private float _cameraShakePower = 1f;
         [SerializeField] private AnimationCurve _explosionFalloff;
+
+        [Header(" Elements ")]
+        private CinemachineImpulseSource _impulseSource;
 
         private bool _isDead;
 
 
+
+        private void Awake()
+        {
+            _impulseSource = GetComponent<CinemachineImpulseSource>();
+        }
 
 
         public void ApplyDamage(float damage, GameObject cause = null)
@@ -58,11 +70,18 @@ namespace TPS
                     damageable.ApplyDamage(_explosionDamage * falloff);
                 }
 
+                if (hit.transform.TryGetComponent<CharacterMovement>(out var movement))
+                {
+                    movement.ExternalForces += (hit.transform.position - transform.position).normalized * _explosionForce * falloff;
+                }
+
                 if (hit.attachedRigidbody)
                 {
                     hit.attachedRigidbody.AddExplosionForce(_explosionForce, transform.position, _explosionRadius, 1, ForceMode.Impulse);
                 }
             }
+
+            _impulseSource.GenerateImpulseAt(transform.position, new Vector3(1, 1, 0) * _cameraShakePower);
 
             Destroy(gameObject);
         }
