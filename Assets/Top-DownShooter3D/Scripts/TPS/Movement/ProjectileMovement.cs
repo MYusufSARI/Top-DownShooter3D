@@ -74,21 +74,19 @@ namespace TPS.Movement
                     enabled = false;
                 }
 
-                targetPosition = hit.point;
-
-                OnImpacted?.Invoke(hit);
+                targetPosition = hit.point + transform.forward * 0.01f; ;
 
                 if (ShouldBounce)
                 {
                     var reflectedDirection = Vector3.Reflect(direction, hit.normal);
                     transform.forward = reflectedDirection;
                 }
+
+                OnImpacted?.Invoke(hit);
             }
 
             Debug.DrawLine(transform.position, targetPosition, Color.red);
-
             transform.position = targetPosition;
-
             Debug.DrawRay(transform.position, direction * distance, Color.blue);
         }
     }
