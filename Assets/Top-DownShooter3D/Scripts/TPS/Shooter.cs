@@ -9,7 +9,10 @@ namespace TPS
         [Header(" Settings ")]
         [SerializeField] private float _fireRate = 0.5f;
         [SerializeField] private float _accuracy = 1f;
+        [SerializeField] private float _recoil;
+        [SerializeField] private float _recoilFade;
 
+        private float _recoilValue = 0f;
         private float _lastShootTime;
 
         [Header(" Elements ")]
@@ -27,7 +30,7 @@ namespace TPS
             var inst = Instantiate(_projectilePrefab, _shootTransform.position, _shootTransform.rotation);
 
             var rand = Random.value;
-            var maxAngle = 60 - 60 * _accuracy;
+            var maxAngle = 30 - 30 * Mathf.Max(_accuracy - _recoilValue, 0);
 
             var randomAngle = Mathf.Lerp(-maxAngle, maxAngle, rand);
 
@@ -38,6 +41,14 @@ namespace TPS
             inst.transform.forward = forward;
 
             _lastShootTime = Time.time;
+
+            _recoilValue += _recoil;
+        }
+
+
+        private void Update()
+        {
+            _recoilValue = Mathf.MoveTowards(_recoilValue, 0, _recoilFade * Time.deltaTime);
         }
     }
 }

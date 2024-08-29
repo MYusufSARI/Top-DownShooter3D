@@ -686,8 +686,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3743463019067041105, guid: 250f87bdc3baf45c2b496c9a390b1497,
         type: 3}
+      propertyPath: _recoil
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743463019067041105, guid: 250f87bdc3baf45c2b496c9a390b1497,
+        type: 3}
       propertyPath: _accuracy
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743463019067041105, guid: 250f87bdc3baf45c2b496c9a390b1497,
+        type: 3}
+      propertyPath: _fireRate
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743463019067041105, guid: 250f87bdc3baf45c2b496c9a390b1497,
+        type: 3}
+      propertyPath: _recoilFade
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5322596824978053775, guid: 250f87bdc3baf45c2b496c9a390b1497,
         type: 3}
