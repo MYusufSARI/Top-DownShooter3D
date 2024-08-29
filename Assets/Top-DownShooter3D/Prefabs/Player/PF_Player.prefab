@@ -321,8 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14d0dd74878e1475c830d8faa5ce8026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fireRate: 0.2
-  _accuracy: 0.5
-  _projectilePrefab: {fileID: 4925288048774470117, guid: 7d8fc794dd71b4c4fba2ea5f620909ad,
+  _weapon: {fileID: 11400000, guid: 2c0064d8937b14de0b50e3248d1abcee, type: 2}
+  _defaultProjectilePrefab: {fileID: 4925288048774470117, guid: 7d8fc794dd71b4c4fba2ea5f620909ad,
     type: 3}
   _shootTransform: {fileID: 5910967144169196762}
