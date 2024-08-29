@@ -19,7 +19,6 @@ namespace TPS.WeaponSystem
         [Header(" Data ")]
         [SerializeField] private WeaponGraphics _weaponGraphics;
 
-
         public float FireRate => _fireRate;
         public float Accuracy => _accuracy;
         public float Recoil => _recoil;

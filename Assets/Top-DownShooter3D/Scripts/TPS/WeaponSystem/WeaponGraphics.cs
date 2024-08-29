@@ -6,6 +6,9 @@ namespace TPS.WeaponSystem
 {
     public class WeaponGraphics : MonoBehaviour
     {
+        [Header(" Settings ")]
+        [SerializeField] private Transform _shootPosition;
 
+        public Transform ShootPosition => _shootPosition;
     }
 }
