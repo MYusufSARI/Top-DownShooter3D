@@ -8,6 +8,7 @@ namespace TPS
     {
         [Header(" Settings ")]
         [SerializeField] private float _health = 5;
+        [SerializeField] private float _explosionRadius;
 
 
 
@@ -24,6 +25,8 @@ namespace TPS
 
         private void Explode()
         {
+            var hits = Physics.OverlapSphere(transform.position, _explosionRadius);
+
             Destroy(gameObject);
         }
     }
