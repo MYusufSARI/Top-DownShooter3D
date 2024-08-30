@@ -8,6 +8,7 @@ namespace TPS.WeaponSystem
     public class Weapon : ScriptableObject
     {
         [Header(" Settings ")]
+        [SerializeField] private float _baseDamage;
         [SerializeField] private float _fireRate = 0.5f;
         [SerializeField] private float _accuracy = 1f;
         [SerializeField] private float _recoil;
@@ -23,6 +24,7 @@ namespace TPS.WeaponSystem
         public float Accuracy => _accuracy;
         public float Recoil => _recoil;
         public float RecoilFade => _recoilFade;
+        public float BaseDamage => _baseDamage;
 
         public GameObject ProjectilePrefab => _projectilePrefab;
 

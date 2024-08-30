@@ -83,6 +83,11 @@ namespace TPS
 
             var inst = Instantiate(projectileToInstantiate, _activeWeaponGraphics.ShootTransform.position, _activeWeaponGraphics.ShootTransform.rotation);
 
+            if(inst.TryGetComponent<ProjectileDamage>(out var projectileDamage))
+            {
+                projectileDamage.Damage = _weapon.BaseDamage;
+            }
+
             var rand = Random.value;
             var maxAngle = 30 - 30 * Mathf.Max(_weapon.Accuracy - _recoilValue, 0);
 
@@ -97,6 +102,8 @@ namespace TPS
             _lastShootTime = Time.time;
 
             _recoilValue += _weapon.Recoil;
+
+            _activeWeaponGraphics.OnShoot();
         }
 
 
