@@ -7,7 +7,7 @@ namespace TPS.WeaponSystem
 {
     public class WeaponGraphics : MonoBehaviour
     {
-        public event Action Shoot;
+        public event Action Shot;
 
         [Header(" Settings ")]
         [SerializeField] private Transform _shootTransform;
@@ -16,9 +16,9 @@ namespace TPS.WeaponSystem
 
 
 
-        public void OnShoot()
+        public void OnShot()
         {
-            Shoot?.Invoke();
+            Shot?.Invoke();
         }
     }
 }

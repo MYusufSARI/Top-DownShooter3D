@@ -89,7 +89,7 @@ namespace TPS
             }
 
             var rand = Random.value;
-            var maxAngle = 30 - 30 * Mathf.Max(_weapon.Accuracy - _recoilValue, 0);
+            var maxAngle = 15 - 15 * Mathf.Max(_weapon.Accuracy - _recoilValue, 0);
 
             var randomAngle = Mathf.Lerp(-maxAngle, maxAngle, rand);
 
@@ -103,7 +103,7 @@ namespace TPS
 
             _recoilValue += _weapon.Recoil;
 
-            _activeWeaponGraphics.OnShoot();
+            _activeWeaponGraphics.OnShot();
         }
 
 
