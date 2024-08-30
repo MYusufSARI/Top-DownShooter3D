@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 namespace TPS.WeaponSystem
@@ -16,6 +17,7 @@ namespace TPS.WeaponSystem
             var inst = Instantiate(_weapon.WeaponGraphics, transform);
 
             inst.transform.localPosition = Vector3.zero;
+            inst.transform.DORotate(Vector3.up * 360, 1f, RotateMode.WorldAxisAdd).SetLoops(-1). SetEase(Ease.Linear);
         }
 
 
