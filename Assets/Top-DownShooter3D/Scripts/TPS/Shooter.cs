@@ -40,7 +40,7 @@ namespace TPS
 
             _weapon = weapon;
 
-            if (!weapon)
+            if (weapon)
             {
                 CreateGraphics();
             }
@@ -60,7 +60,7 @@ namespace TPS
 
         private void ClearGraphics()
         {
-            if (_activeWeaponGraphics) return;
+            if (!_activeWeaponGraphics) return;
 
             Destroy(_activeWeaponGraphics.gameObject);
 
