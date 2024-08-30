@@ -10,5 +10,12 @@ namespace TPS.WeaponSystem
         [SerializeField] private Transform _shootTransform;
 
         public Transform ShootTransform => _shootTransform;
+
+
+
+        public void OnShoot()
+        {
+
+        }
     }
 }
