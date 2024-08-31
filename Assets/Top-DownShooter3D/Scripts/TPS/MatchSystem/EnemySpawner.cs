@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
+using Random = UnityEngine.Random;
 
 namespace TPS.MatchSystem
 {
@@ -22,7 +23,6 @@ namespace TPS.MatchSystem
         }
 
 
-
         private void Start()
         {
             StartCoroutine(CreateEnemy());
@@ -35,7 +35,7 @@ namespace TPS.MatchSystem
             {
                 yield return new WaitForSeconds(1);
 
-                var viewportPoint = new Vector3(-0.1f, 0);
+                var viewportPoint = new Vector3(-0.2f, Random.value);
                 var ray = _mainCamera.ViewportPointToRay(viewportPoint);
 
                 if (_plane.Raycast(ray, out float enter))

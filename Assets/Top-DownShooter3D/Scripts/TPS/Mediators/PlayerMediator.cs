@@ -43,7 +43,6 @@ namespace TPS.Mediatiors
             _gameInput.Enable();
 
             _gameInput.Player.Dodge.performed += OnDodgeRequested;
-
         }
 
 
@@ -75,7 +74,6 @@ namespace TPS.Mediatiors
             {
                 _shooter.Shoot();
             }
-
         }
 
 
@@ -85,7 +83,6 @@ namespace TPS.Mediatiors
             _characterMovement.MovementInput = movementInput;
 
             var ray = _mainCamera.ScreenPointToRay(_gameInput.Player.PointerPosition.ReadValue<Vector2>());
-
             var gamePadLookDir = _gameInput.Player.Look.ReadValue<Vector2>();
 
             if (gamePadLookDir.magnitude > 0.1f)
