@@ -34,7 +34,7 @@ namespace TPS.MatchSystem
 
         private Vector3 GetSpawnOffsetViewportPosition(Vector3 viewport)
         {
-            
+
         }
 
 
@@ -50,7 +50,7 @@ namespace TPS.MatchSystem
                 if (Random.value > 0.5f)
                 {
                     viewportPoint = new Vector3(Mathf.Round(Random.value), Random.value);
-                    
+
                 }
 
                 else
