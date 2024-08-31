@@ -10,19 +10,22 @@ namespace TPS.MatchSystem
     {
         [Header(" Elements ")]
         private Camera _mainCamera;
+        private Plane _plane;
 
 
 
         private void Awake()
         {
             _mainCamera = Camera.main;
+
+            _plane = new Plane(Vector3.up, Vector3.zero);
         }
 
 
 
         private void Start()
         {
-            StartCoroutine(CreateEnemy());    
+            StartCoroutine(CreateEnemy());
         }
 
 
@@ -32,9 +35,16 @@ namespace TPS.MatchSystem
             {
                 yield return new WaitForSeconds(1);
 
-                var viewportPoint = new Vector3(-0.1f, 0, Mathf.Abs(_mainCamera.transform.position.z));
+                var viewportPoint = new Vector3(-0.1f, 0);
+                var ray = _mainCamera.ViewportPointToRay(viewportPoint);
 
-                var worldPosition = _mainCamera.ViewportToWorldPoint(viewportPoint);
+                if (_plane.Raycast(ray, out float enter))
+                {
+                    var worldPos = ray.GetPoint(enter);
+                    var inst = GameObject.CreatePrimitive(PrimitiveType.Capsule);
+
+                    inst.transform.position = worldPos;
+                }
             }
         }
     }
