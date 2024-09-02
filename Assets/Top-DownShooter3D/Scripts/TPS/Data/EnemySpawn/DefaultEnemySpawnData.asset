@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: DefaultEnemySpawnData
   m_EditorClassIdentifier: 
   _entries:
-  - duration: 300
+  - _duration: 300
     _spawnCount: 1000
     _prefabs:
     - {fileID: 407790203724511445, guid: 51520fa9f4e7142089b003a673ef735a, type: 3}
-  - duration: 500
+  - _duration: 500
     _spawnCount: 1000
     _prefabs:
     - {fileID: 6586111371021656692, guid: 9be323cc431404232acbb23dabf0ac61, type: 3}

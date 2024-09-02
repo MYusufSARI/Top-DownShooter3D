@@ -42,11 +42,24 @@ namespace TPS.MatchSystem
         }
 
 
+        private GameObject GetSpawnObject()
+        {
+            var time = _matchInstance.Time;
+
+            if (_enemySpawnData.TryGetEntryByTime(time, out SpawnEntry entry))
+            {
+                return entry.Prefabs[Random.Range(0, entry.Prefabs.Length - 1)];
+            }
+
+            return null;
+        }
+
+
         private IEnumerator CreateEnemy()
         {
             while (true)
             {
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(0.5f);
 
                 var viewportPoint = Vector3.zero;
 
@@ -73,7 +86,7 @@ namespace TPS.MatchSystem
                 if (_plane.Raycast(ray, out float enter))
                 {
                     var worldPos = ray.GetPoint(enter) + offset;
-                    var inst = GameObject.CreatePrimitive(PrimitiveType.Capsule);
+                    var inst = Instantiate(GetSpawnObject(), worldPos, Quaternion.identity);
 
                     inst.transform.position = worldPos;
                 }
