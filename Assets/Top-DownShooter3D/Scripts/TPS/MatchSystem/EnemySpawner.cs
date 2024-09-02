@@ -9,12 +9,15 @@ namespace TPS.MatchSystem
 {
     public class EnemySpawner : MonoBehaviour
     {
-        [Header(" Elements ")]
+        [Header("Elements")]
         private Camera _mainCamera;
         private Plane _plane;
 
-        [Header(" Settings ")]
+        [Header("Settings")]
         [SerializeField] private float _offset;
+
+        [Header("Data")]
+        [SerializeField] private MatchInstance _matchInstance;
 
 
 

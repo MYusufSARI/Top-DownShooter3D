@@ -6,7 +6,7 @@ namespace TPS
 {
     public class TransformFollower : MonoBehaviour
     {
-        [Header(" Elements ")]
+        [Header("Elements")]
         [SerializeField] private Transform _target;
 
 
