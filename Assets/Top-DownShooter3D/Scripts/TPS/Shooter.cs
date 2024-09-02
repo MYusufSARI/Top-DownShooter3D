@@ -7,16 +7,16 @@ namespace TPS
 {
     public class Shooter : MonoBehaviour
     {
-        [Header(" Settings ")]
+        [Header("Settings")]
         private float _recoilValue = 0f;
         private float _lastShootTime;
 
-        [Header(" Data ")]
+        [Header("Data")]
         [SerializeField] private Weapon _weapon;
 
         private WeaponGraphics _activeWeaponGraphics;
 
-        [Header(" Elements ")]
+        [Header("Elements")]
         [SerializeField] private GameObject _defaultProjectilePrefab;
         [SerializeField] private Transform _shootTransform;
         [SerializeField] private Transform _weaponContainer;

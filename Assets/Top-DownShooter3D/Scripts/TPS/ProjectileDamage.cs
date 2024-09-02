@@ -8,10 +8,10 @@ namespace TPS
 {
     public class ProjectileDamage : MonoBehaviour
     {
-        [Header(" Elements ")]
+        [Header("Elements")]
         private ProjectileMovement _projectileMovement;
 
-        [Header(" Settings ")]
+        [Header("Settings")]
         [SerializeField] private float _damage = 1;
         
         public float Damage

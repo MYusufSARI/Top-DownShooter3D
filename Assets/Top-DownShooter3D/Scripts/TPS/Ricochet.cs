@@ -8,10 +8,10 @@ namespace TPS
 {
     public class Ricochet : MonoBehaviour
     {
-        [Header(" Data ")]
+        [Header("Data")]
         private ProjectileMovement _projectileMovement;
 
-        [Header(" Settings ")]
+        [Header("Settings")]
         [SerializeField] private float _radius;
         [SerializeField] private float _ricochetCount = 5f;
         [SerializeField] private bool _removeOnComplete;
