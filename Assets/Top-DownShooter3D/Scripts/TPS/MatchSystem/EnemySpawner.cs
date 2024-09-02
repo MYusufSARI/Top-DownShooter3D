@@ -45,19 +45,22 @@ namespace TPS.MatchSystem
                 yield return new WaitForSeconds(1);
 
                 var viewportPoint = Vector3.zero;
+
                 var offset = Vector3.zero;
 
                 if (Random.value > 0.5f)
                 {
-                    viewportPoint = new Vector3(Mathf.Round(Random.value), Random.value);
+                    var dir = Mathf.Round(Random.value);
+
+                    viewportPoint = new Vector3(dir, Random.value);
+
+                    offset = GetSpawnOffsetViewportPosition(viewportPoint, dir < 0.001f ? -1f : 1f);
                 }
 
                 else
                 {
                     viewportPoint = new Vector3(Random.value, Mathf.Round(Random.value));
                 }
-
-                offset = GetSpawnOffsetViewportPosition(viewportPoint);
 
                 var ray = _mainCamera.ViewportPointToRay(viewportPoint);
 
