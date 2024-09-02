@@ -18,6 +18,7 @@ namespace TPS.MatchSystem
 
         [Header("Data")]
         [SerializeField] private MatchInstance _matchInstance;
+        [SerializeField] private EnemySpawnData _enemySpawnData;
 
 
 
