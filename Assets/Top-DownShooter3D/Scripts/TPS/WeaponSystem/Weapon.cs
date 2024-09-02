@@ -7,17 +7,17 @@ namespace TPS.WeaponSystem
     [CreateAssetMenu(menuName = "Weapon")]
     public class Weapon : ScriptableObject
     {
-        [Header(" Settings ")]
+        [Header("Settings")]
         [SerializeField] private float _baseDamage;
         [SerializeField] private float _fireRate = 0.5f;
         [SerializeField] private float _accuracy = 1f;
         [SerializeField] private float _recoil;
         [SerializeField] private float _recoilFade;
 
-        [Header(" Elements ")]
+        [Header("Elements")]
         [SerializeField] private GameObject _projectilePrefab;
 
-        [Header(" Data ")]
+        [Header("Data")]
         [SerializeField] private WeaponGraphics _weaponGraphics;
 
         public float FireRate => _fireRate;

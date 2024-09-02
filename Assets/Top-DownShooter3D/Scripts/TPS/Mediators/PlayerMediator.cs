@@ -10,16 +10,16 @@ namespace TPS.Mediatiors
 {
     public class PlayerMediator : MonoBehaviour
     {
-        [Header(" Data ")]
+        [Header("Data")]
         private CharacterMovement _characterMovement;
         private Shooter _shooter;
         private GameInput _gameInput;
         private Plane _plane;
 
-        [Header(" Settings ")]
+        [Header("Settings")]
         [SerializeField] private float _dodgePower;
 
-        [Header(" Elements ")]
+        [Header("Elements")]
         private Camera _mainCamera;
 
 

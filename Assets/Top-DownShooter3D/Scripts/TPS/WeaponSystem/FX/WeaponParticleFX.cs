@@ -6,7 +6,7 @@ namespace TPS.WeaponSystem.FX
 {
     public class WeaponParticleFX : WeaponFX
     {
-        [Header(" Elements ")]
+        [Header("Elements")]
         [SerializeField] protected ParticleSystem[] _particleSystems;
 
 

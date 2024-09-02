@@ -9,7 +9,7 @@ namespace TPS.Editor
     [CustomEditor(typeof(Shooter))]
     public class ShooterEditor : UnityEditor.Editor
     {
-        [Header(" Data ")]
+        [Header("Data")]
         private Weapon _weapon;
 
 

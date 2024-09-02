@@ -7,7 +7,7 @@ namespace TPS.WeaponSystem.FX
 {
     public abstract class WeaponFX : MonoBehaviour
     {
-        [Header(" Data ")]
+        [Header("Data")]
         private WeaponGraphics _weaponGraphics;
 
 

@@ -9,7 +9,7 @@ namespace TPS.WeaponSystem
     {
         public event Action Shot;
 
-        [Header(" Settings ")]
+        [Header("Settings")]
         [SerializeField] private Transform _shootTransform;
 
         public Transform ShootTransform => _shootTransform;

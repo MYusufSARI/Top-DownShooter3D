@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace TPS
 {
-
     public interface IDamageable
     {
         void ApplyDamage(float damage, GameObject causer = null);

@@ -9,14 +9,14 @@ namespace TPS.Movement.Test
 {
     public class MovementTest : MonoBehaviour
     {
-        [Header(" Settings ")]
+        [Header("Settings")]
         [SerializeField] private Vector2 _movementInput;
         [SerializeField] private Vector3 _externalForceValue;
 
-        [Header(" Elements ")]
+        [Header("Elements")]
         [SerializeField] private CharacterMovement _characterMovement;
 
-        [Header(" Data ")]
+        [Header("Data")]
         private GameInput _gameInput;
 
 

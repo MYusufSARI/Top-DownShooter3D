@@ -7,7 +7,7 @@ namespace TPS.Movement
 {
     public class ProjectileMovement : MonoBehaviour
     {
-        [Header(" Settings ")]
+        [Header("Settings")]
         [SerializeField] private float _speed;
         [SerializeField] private float _pushPower;
         [SerializeField] private bool _shouldDestroyOnCollision;

@@ -7,10 +7,10 @@ namespace TPS.Movement
     [RequireComponent(typeof(CharacterController))]
     public class CharacterMovement : MonoBehaviour
     {
-        [Header(" Elements ")]
+        [Header("Elements")]
         private CharacterController _characterController;
 
-        [Header(" Settings ")]
+        [Header("Settings")]
         [SerializeField] private float _moveSpeed = 4f;
 
         public Vector2 MovementInput { get; set; }

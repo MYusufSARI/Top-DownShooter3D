@@ -9,7 +9,7 @@ namespace TPS
     [RequireComponent(typeof(CinemachineImpulseSource))]
     public class ExplosiveBarrel : MonoBehaviour, IDamageable
     {
-        [Header(" Settings ")]
+        [Header("Settings")]
         [SerializeField] private float _health = 5;
         [SerializeField] private float _explosionRadius = 5f;
         [SerializeField] private float _explosionDamage = 5f;
@@ -18,7 +18,7 @@ namespace TPS
         [SerializeField] private float _cameraShakePower = 1f;
         [SerializeField] private AnimationCurve _explosionFalloff;
 
-        [Header(" Elements ")]
+        [Header("Elements")]
         private CinemachineImpulseSource _impulseSource;
 
         private bool _isDead;

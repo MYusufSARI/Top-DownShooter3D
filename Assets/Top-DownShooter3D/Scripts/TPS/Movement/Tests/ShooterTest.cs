@@ -6,7 +6,7 @@ namespace TPS.Movement.Test
 {
     public class ShooterTest : MonoBehaviour
     {
-        [Header(" Elements ")]
+        [Header("Elements")]
         [SerializeField] private GameObject _projectilePrefab;
 
 

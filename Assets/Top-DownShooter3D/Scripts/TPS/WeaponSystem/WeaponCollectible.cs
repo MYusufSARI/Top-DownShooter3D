@@ -7,7 +7,7 @@ namespace TPS.WeaponSystem
 {
     public class WeaponCollectible : MonoBehaviour
     {
-        [Header(" Data ")]
+        [Header("Data")]
         [SerializeField] private Weapon _weapon;
 
 
