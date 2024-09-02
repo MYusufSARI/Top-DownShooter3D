@@ -32,9 +32,9 @@ namespace TPS.MatchSystem
         }
 
 
-        private Vector3 GetSpawnOffsetViewportPosition(Vector3 viewport, float sign)
+        private Vector3 GetSpawnOffsetViewportPosition(Vector3 vector, float sign)
         {
-            return Vector3.up * _offset;
+            return vector * sign * _offset;
         }
 
 
@@ -51,15 +51,17 @@ namespace TPS.MatchSystem
                 if (Random.value > 0.5f)
                 {
                     var dir = Mathf.Round(Random.value);
-
                     viewportPoint = new Vector3(dir, Random.value);
 
-                    offset = GetSpawnOffsetViewportPosition(viewportPoint, dir < 0.001f ? -1f : 1f);
+                    offset = GetSpawnOffsetViewportPosition(Vector3.right, dir < 0.001f ? -1f : 1f);
                 }
 
                 else
                 {
-                    viewportPoint = new Vector3(Random.value, Mathf.Round(Random.value));
+                    var dir = Mathf.Round(Random.value);
+                    viewportPoint = new Vector3(Random.value, dir);
+
+                    offset = GetSpawnOffsetViewportPosition(Vector3.up, dir < 0.001f ? -1f : 1f);
                 }
 
                 var ray = _mainCamera.ViewportPointToRay(viewportPoint);
