@@ -61,14 +61,14 @@ namespace TPS.MatchSystem
                     var dir = Mathf.Round(Random.value);
                     viewportPoint = new Vector3(Random.value, dir);
 
-                    offset = GetSpawnOffsetViewportPosition(Vector3.up, dir < 0.001f ? -1f : 1f);
+                    offset = GetSpawnOffsetViewportPosition(Vector3.forward, dir < 0.001f ? -1f : 1f);
                 }
 
                 var ray = _mainCamera.ViewportPointToRay(viewportPoint);
 
                 if (_plane.Raycast(ray, out float enter))
                 {
-                    var worldPos = ray.GetPoint(enter) - offset;
+                    var worldPos = ray.GetPoint(enter) + offset;
                     var inst = GameObject.CreatePrimitive(PrimitiveType.Capsule);
 
                     inst.transform.position = worldPos;
