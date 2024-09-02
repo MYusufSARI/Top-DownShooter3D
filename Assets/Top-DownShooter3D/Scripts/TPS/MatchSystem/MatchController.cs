@@ -11,6 +11,12 @@ namespace TPS.MatchSystem
 
 
 
+        private void Awake()
+        {
+            _matchInstance.Reset();
+        }
+
+
         private void Update()
         {
             _matchInstance.AddTime(Time.deltaTime);
