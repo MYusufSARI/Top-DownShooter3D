@@ -351,6 +351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _offset: 5
+  _spawnRate: 1
   _matchInstance: {fileID: 11400000, guid: f95eb7437d93449a1a9a56c95273c5eb, type: 2}
   _enemySpawnData: {fileID: 11400000, guid: 6df3cda2386144aa0bd9420be0b73fe4, type: 2}
 --- !u!1 &961739749

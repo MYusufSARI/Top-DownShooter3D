@@ -15,6 +15,7 @@ namespace TPS.MatchSystem
 
         [Header("Settings")]
         [SerializeField] private float _offset;
+        [SerializeField] private float _spawnRate = 0.5f;
 
         [Header("Data")]
         [SerializeField] private MatchInstance _matchInstance;
@@ -42,13 +43,14 @@ namespace TPS.MatchSystem
         }
 
 
+
         private GameObject GetSpawnObject()
         {
             var time = _matchInstance.Time;
 
             if (_enemySpawnData.TryGetEntryByTime(time, out SpawnEntry entry))
             {
-                return entry.Prefabs[Random.Range(0, entry.Prefabs.Length - 1)];
+                return entry.Prefabs[Random.Range(0, entry.Prefabs.Length)];
             }
 
             return null;
@@ -59,38 +61,56 @@ namespace TPS.MatchSystem
         {
             while (true)
             {
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(_spawnRate);
 
-                var viewportPoint = Vector3.zero;
+                if (_enemySpawnData.TryGetEntryByTime(_matchInstance.Time, out SpawnEntry entry)) continue;
 
-                var offset = Vector3.zero;
 
-                if (Random.value > 0.5f)
+                var spawnPerCall = ((float)entry.SpawnCount / entry.Duration) * _spawnRate;
+
+                for (int i = 0; i < spawnPerCall; i++)
                 {
-                    var dir = Mathf.Round(Random.value);
-                    viewportPoint = new Vector3(dir, Random.value);
+                    var viewportPoint = GetViewportPoint(out var offset);
 
-                    offset = GetSpawnOffsetViewportPosition(Vector3.right, dir < 0.001f ? -1f : 1f);
+                    var ray = _mainCamera.ViewportPointToRay(viewportPoint);
+
+                    if (_plane.Raycast(ray, out float enter))
+                    {
+                        var objectToSpawn = entry.Prefabs[Random.Range(0, entry.Prefabs.Length)];
+                        var worldPos = ray.GetPoint(enter) + offset;
+                        var inst = Instantiate(objectToSpawn, worldPos, Quaternion.identity);
+
+                        inst.transform.position = worldPos;
+                    }
                 }
 
-                else
-                {
-                    var dir = Mathf.Round(Random.value);
-                    viewportPoint = new Vector3(Random.value, dir);
-
-                    offset = GetSpawnOffsetViewportPosition(Vector3.forward, dir < 0.001f ? -1f : 1f);
-                }
-
-                var ray = _mainCamera.ViewportPointToRay(viewportPoint);
-
-                if (_plane.Raycast(ray, out float enter))
-                {
-                    var worldPos = ray.GetPoint(enter) + offset;
-                    var inst = Instantiate(GetSpawnObject(), worldPos, Quaternion.identity);
-
-                    inst.transform.position = worldPos;
-                }
             }
+        }
+
+
+        private Vector3 GetViewportPoint(out Vector3 offset)
+        {
+            var viewportPoint = Vector3.zero;
+
+            offset = Vector3.zero;
+
+            if (Random.value > 0.5f)
+            {
+                var dir = Mathf.Round(Random.value);
+                viewportPoint = new Vector3(dir, Random.value);
+
+                offset = GetSpawnOffsetViewportPosition(Vector3.right, dir < 0.001f ? -1f : 1f);
+            }
+
+            else
+            {
+                var dir = Mathf.Round(Random.value);
+                viewportPoint = new Vector3(Random.value, dir);
+
+                offset = GetSpawnOffsetViewportPosition(Vector3.forward, dir < 0.001f ? -1f : 1f);
+            }
+
+            return viewportPoint;
         }
     }
 }
