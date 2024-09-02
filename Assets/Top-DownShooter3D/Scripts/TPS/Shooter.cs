@@ -22,7 +22,7 @@ namespace TPS
         [SerializeField] private Transform _weaponContainer;
 
         public bool CanShoot => Time.time > _lastShootTime + _weapon.FireRate;
-        
+
 
 
         private void Start()
@@ -83,7 +83,7 @@ namespace TPS
 
             var inst = Instantiate(projectileToInstantiate, _activeWeaponGraphics.ShootTransform.position, _activeWeaponGraphics.ShootTransform.rotation);
 
-            if(inst.TryGetComponent<ProjectileDamage>(out var projectileDamage))
+            if (inst.TryGetComponent<ProjectileDamage>(out var projectileDamage))
             {
                 projectileDamage.Damage = _weapon.BaseDamage;
             }
