@@ -32,9 +32,9 @@ namespace TPS.MatchSystem
         }
 
 
-        private Vector3 GetSpawnOffsetViewportPosition(Vector3 viewport)
+        private Vector3 GetSpawnOffsetViewportPosition(Vector3 viewport, float sign)
         {
-
+            return Vector3.up * _offset;
         }
 
 
