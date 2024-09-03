@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 using TPS.WeaponSystem;
+using TPS.Movement;
 
 namespace TPS
 {
@@ -72,6 +73,14 @@ namespace TPS
 
             var inst = Instantiate(projectileToInstantiate, _activeWeaponGraphics.ShootTransform.position, _activeWeaponGraphics.ShootTransform.rotation);
 
+            if (inst.TryGetComponent<ProjectileMovement>(out var projectileMovement))
+            {
+                projectileMovement.DestroyRequested += () =>
+                {
+                    _projectilePool.Release(inst);
+                };
+            }
+
             return inst;
         }
 
@@ -126,6 +135,9 @@ namespace TPS
             if (!CanShoot) return;
 
             var inst = _projectilePool.Get();
+
+            inst.transform.position = _activeWeaponGraphics.ShootTransform.position;
+            inst.transform.rotation = _activeWeaponGraphics.ShootTransform.rotation;
 
 
             if (inst.TryGetComponent<ProjectileDamage>(out var projectileDamage))

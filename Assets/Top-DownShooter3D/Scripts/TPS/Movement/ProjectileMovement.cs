@@ -10,6 +10,7 @@ namespace TPS.Movement
         [Header("Settings")]
         [SerializeField] private float _speed;
         [SerializeField] private float _pushPower;
+        [SerializeField] private float _lifeTime;
         [SerializeField] private bool _shouldDestroyOnCollision;
         [SerializeField] private bool _shouldDisableOnCollision;
         [SerializeField] private bool _shouldBounce;
@@ -41,6 +42,7 @@ namespace TPS.Movement
 
 
         public event Action<RaycastHit> OnImpacted;
+        public event Action DestroyRequested;
 
 
 
@@ -66,7 +68,7 @@ namespace TPS.Movement
 
                 if (ShouldDestroyOnCollision)
                 {
-                    Destroy(gameObject);
+                    DestroyRequested?.Invoke();
                 }
 
                 if (ShouldDisableOnCollision)
