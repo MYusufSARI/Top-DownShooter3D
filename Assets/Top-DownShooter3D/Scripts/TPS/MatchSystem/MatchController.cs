@@ -9,11 +9,16 @@ namespace TPS.MatchSystem
         [Header("Data")]
         [SerializeField] private MatchInstance _matchInstance;
 
+        [Header("Elements")]
+        [SerializeField] private GameObject _player;
+
 
 
         private void Awake()
         {
             _matchInstance.Reset();
+
+            _matchInstance.Player = _player;
         }
 
 

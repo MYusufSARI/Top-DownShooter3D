@@ -9,6 +9,8 @@ namespace TPS.MatchSystem
     {
         public float Time { get; private set; }
 
+        public GameObject Player { get; set; }
+
 
         public void AddTime(float delta)
         {

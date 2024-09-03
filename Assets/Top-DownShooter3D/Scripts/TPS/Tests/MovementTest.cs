@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TPS.Input;
 using System;
+using TPS.Movement;
 
-namespace TPS.Movement.Test
+namespace TPS.Tests
 {
     public class MovementTest : MonoBehaviour
     {
