@@ -17,6 +17,8 @@ namespace TPS.MatchSystem
         [SerializeField] private float _offset;
         [SerializeField] private float _spawnRate = 0.5f;
 
+        private GameObject[] _pooledObjects;
+
         [Header("Data")]
         [SerializeField] private MatchInstance _matchInstance;
         [SerializeField] private EnemySpawnData _enemySpawnData;
@@ -28,6 +30,14 @@ namespace TPS.MatchSystem
             _mainCamera = Camera.main;
 
             _plane = new Plane(Vector3.up, Vector3.zero);
+
+            CreatePoolObjects();
+        }
+
+
+        private void CreatePoolObjects()
+        {
+
         }
 
 
@@ -41,7 +51,6 @@ namespace TPS.MatchSystem
         {
             return vector * sign * _offset;
         }
-
 
 
         private GameObject GetSpawnObject()
