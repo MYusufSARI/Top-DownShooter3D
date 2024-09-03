@@ -48,7 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 150
   _pushPower: 0.01
-  _lifeTime: 0
+  _lifeTime: 5
+  _spawnTime: 0
   _shouldDestroyOnCollision: 1
   _shouldDisableOnCollision: 0
   _shouldBounce: 0
