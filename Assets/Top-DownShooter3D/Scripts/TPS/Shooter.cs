@@ -67,6 +67,18 @@ namespace TPS
         }
 
 
+        private IEnumerator ClearTrailRendererDelayed(TrailRenderer trail)
+        {
+            trail.emitting = false;
+
+            yield return new WaitForEndOfFrame();
+
+            trail.Clear();
+
+            trail.emitting = true;
+        }
+
+
         private GameObject CreatePoolProjectile()
         {
             var projectileToInstantiate = _defaultProjectilePrefab;
@@ -143,6 +155,15 @@ namespace TPS
 
             inst.transform.position = _activeWeaponGraphics.ShootTransform.position;
             inst.transform.rotation = _activeWeaponGraphics.ShootTransform.rotation;
+
+            var trail = inst.GetComponentInChildren<TrailRenderer>();
+
+            if (trail)
+            {
+                trail.Clear();
+
+                StartCoroutine(ClearTrailRendererDelayed(trail));
+            }
 
 
             if (inst.TryGetComponent<ProjectileDamage>(out var projectileDamage))
