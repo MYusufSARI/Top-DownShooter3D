@@ -12,12 +12,14 @@ namespace TPS.MatchSystem
         [Header("Elements")]
         private Camera _mainCamera;
         private Plane _plane;
-        
+
         private GameObject[] _pooledObjects;
 
         [Header("Settings")]
         [SerializeField] private float _offset;
         [SerializeField] private float _spawnRate = 0.5f;
+
+        private int _currentSpawnedObjectIndex;
 
         [Header("Data")]
         [SerializeField] private MatchInstance _matchInstance;
@@ -62,8 +64,6 @@ namespace TPS.MatchSystem
                     currentSpawnIndex++;
                 }
             }
-
-            
         }
 
 
@@ -79,26 +79,13 @@ namespace TPS.MatchSystem
         }
 
 
-        private GameObject GetSpawnObject()
-        {
-            var time = _matchInstance.Time;
-
-            if (_enemySpawnData.TryGetEntryByTime(time, out SpawnEntry entry))
-            {
-                return entry.Prefabs[Random.Range(0, entry.Prefabs.Length)];
-            }
-
-            return null;
-        }
-
-
         private IEnumerator CreateEnemy()
         {
             while (true)
             {
                 yield return new WaitForSeconds(_spawnRate);
 
-                if (_enemySpawnData.TryGetEntryByTime(_matchInstance.Time, out SpawnEntry entry)) continue;
+                if (!_enemySpawnData.TryGetEntryByTime(_matchInstance.Time, out SpawnEntry entry)) continue;
 
 
                 var spawnPerCall = ((float)entry.SpawnCount / entry.Duration) * _spawnRate;
@@ -111,11 +98,13 @@ namespace TPS.MatchSystem
 
                     if (_plane.Raycast(ray, out float enter))
                     {
-                        var objectToSpawn = entry.Prefabs[Random.Range(0, entry.Prefabs.Length)];
                         var worldPos = ray.GetPoint(enter) + offset;
-                        var inst = Instantiate(objectToSpawn, worldPos, Quaternion.identity);
+                        var inst = _pooledObjects[_currentSpawnedObjectIndex];
 
                         inst.transform.position = worldPos;
+                        inst.SetActive(true);
+
+                        _currentSpawnedObjectIndex++;
                     }
                 }
 
