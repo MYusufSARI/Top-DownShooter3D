@@ -38,7 +38,7 @@ namespace TPS
                 OnReleasePool,
                 OnDestroyFromPool,
                 true,
-                maxSize: 50
+                maxSize: 10
                 );
         }
 
