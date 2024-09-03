@@ -52,30 +52,21 @@ namespace TPS
 
         private void OnReleasePool(GameObject obj)
         {
-            obj.SetActive(false);
+            if (obj.TryGetComponent<ProjectileMovement>(out var movement))
+            {
+                movement.enabled = false;
+            }
         }
 
 
         private void OnGetPoolProjectile(GameObject obj)
         {
-            obj.SetActive(true);
-
             if (obj.TryGetComponent<ProjectileMovement>(out var movement))
             {
+                movement.enabled = true;
+
                 movement.ResetSpawnTime();
             }
-        }
-
-
-        private IEnumerator ClearTrailRendererDelayed(TrailRenderer trail)
-        {
-            trail.emitting = false;
-
-            yield return new WaitForEndOfFrame();
-
-            trail.Clear();
-
-            trail.emitting = true;
         }
 
 
@@ -161,8 +152,6 @@ namespace TPS
             if (trail)
             {
                 trail.Clear();
-
-                StartCoroutine(ClearTrailRendererDelayed(trail));
             }
 
 

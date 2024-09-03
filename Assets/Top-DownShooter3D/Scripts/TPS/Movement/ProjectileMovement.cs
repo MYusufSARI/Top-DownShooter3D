@@ -48,7 +48,7 @@ namespace TPS.Movement
 
         private void Awake()
         {
-            ResetSpawnTime();  
+            ResetSpawnTime();
         }
 
 
@@ -60,7 +60,7 @@ namespace TPS.Movement
 
         private void Update()
         {
-            if (_lifeTime>0 && Time.time - _spawnTime > _lifeTime)
+            if (_lifeTime > 0 && Time.time - _spawnTime > _lifeTime)
             {
                 DestroyRequested?.Invoke();
 
