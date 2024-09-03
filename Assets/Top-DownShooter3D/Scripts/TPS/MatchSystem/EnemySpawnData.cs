@@ -10,6 +10,9 @@ namespace TPS.MatchSystem
         [Header("Data")]
         [SerializeField] private SpawnEntry[] _entries;
 
+        public SpawnEntry[] Entries => _entries;
+
+
 
         public bool TryGetEntryByTime(float time, out SpawnEntry spawnEntry)
         {

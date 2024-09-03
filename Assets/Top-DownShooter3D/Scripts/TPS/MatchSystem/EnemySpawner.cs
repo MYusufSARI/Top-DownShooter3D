@@ -12,12 +12,12 @@ namespace TPS.MatchSystem
         [Header("Elements")]
         private Camera _mainCamera;
         private Plane _plane;
+        
+        private GameObject[] _pooledObjects;
 
         [Header("Settings")]
         [SerializeField] private float _offset;
         [SerializeField] private float _spawnRate = 0.5f;
-
-        private GameObject[] _pooledObjects;
 
         [Header("Data")]
         [SerializeField] private MatchInstance _matchInstance;
@@ -37,7 +37,33 @@ namespace TPS.MatchSystem
 
         private void CreatePoolObjects()
         {
+            int totalSpawnCount = 0;
 
+            foreach (var entry in _enemySpawnData.Entries)
+            {
+                totalSpawnCount += entry.SpawnCount;
+            }
+
+            _pooledObjects = new GameObject[totalSpawnCount];
+
+            int currentSpawnIndex = 0;
+
+            foreach (var entry in _enemySpawnData.Entries)
+            {
+                for (int i = 0; i < entry.SpawnCount; i++)
+                {
+                    var objectToSpawn = entry.Prefabs[Random.Range(0, entry.Prefabs.Length)];
+
+                    var inst = Instantiate(objectToSpawn, Vector3.zero, Quaternion.identity);
+                    inst.SetActive(false);
+
+                    _pooledObjects[currentSpawnIndex] = inst;
+
+                    currentSpawnIndex++;
+                }
+            }
+
+            
         }
 
 
