@@ -35,7 +35,7 @@ namespace TPS
             _projectilePool = new ObjectPool<GameObject>
                 (
                 CreatePoolProjectile,
-                OnGetPool,
+                OnGetPoolProjectile,
                 OnReleasePool,
                 OnDestroyFromPool,
                 true,
@@ -56,9 +56,14 @@ namespace TPS
         }
 
 
-        private void OnGetPool(GameObject obj)
+        private void OnGetPoolProjectile(GameObject obj)
         {
             obj.SetActive(true);
+
+            if (obj.TryGetComponent<ProjectileMovement>(out var movement))
+            {
+                movement.ResetSpawnTime();
+            }
         }
 
 

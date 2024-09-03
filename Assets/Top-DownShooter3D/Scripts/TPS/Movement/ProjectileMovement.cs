@@ -7,10 +7,14 @@ namespace TPS.Movement
 {
     public class ProjectileMovement : MonoBehaviour
     {
+        public event Action<RaycastHit> OnImpacted;
+        public event Action DestroyRequested;
+
         [Header("Settings")]
         [SerializeField] private float _speed;
         [SerializeField] private float _pushPower;
         [SerializeField] private float _lifeTime;
+        [SerializeField] private float _spawnTime;
         [SerializeField] private bool _shouldDestroyOnCollision;
         [SerializeField] private bool _shouldDisableOnCollision;
         [SerializeField] private bool _shouldBounce;
@@ -41,13 +45,28 @@ namespace TPS.Movement
         }
 
 
-        public event Action<RaycastHit> OnImpacted;
-        public event Action DestroyRequested;
 
+        private void Awake()
+        {
+            ResetSpawnTime();  
+        }
+
+
+        public void ResetSpawnTime()
+        {
+            _spawnTime = Time.time;
+        }
 
 
         private void Update()
         {
+            if (_lifeTime>0 && Time.time - _spawnTime > _lifeTime)
+            {
+                DestroyRequested?.Invoke();
+
+                return;
+            }
+
             var direction = transform.forward;
 
             direction.x *= _movementPlane.x;
