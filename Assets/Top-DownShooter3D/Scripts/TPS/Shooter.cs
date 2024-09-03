@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 using TPS.WeaponSystem;
 
 namespace TPS
@@ -23,6 +24,56 @@ namespace TPS
 
         public bool CanShoot => Time.time > _lastShootTime + _weapon.FireRate;
 
+        [Header("Pool")]
+        private IObjectPool<GameObject> _projectilePool;
+
+
+
+        private void Awake()
+        {
+            _projectilePool = new ObjectPool<GameObject>
+                (
+                CreatePoolProjectile,
+                OnGetPool,
+                OnReleasePool,
+                OnDestroyFromPool,
+                true,
+                maxSize: 50
+                );
+        }
+
+
+        private void OnDestroyFromPool(GameObject obj)
+        {
+            Destroy(obj);
+        }
+
+
+        private void OnReleasePool(GameObject obj)
+        {
+            obj.SetActive(false);
+        }
+
+
+        private void OnGetPool(GameObject obj)
+        {
+            obj.SetActive(true);
+        }
+
+
+        private GameObject CreatePoolProjectile()
+        {
+            var projectileToInstantiate = _defaultProjectilePrefab;
+
+            if (_weapon.ProjectilePrefab)
+            {
+                projectileToInstantiate = _weapon.ProjectilePrefab;
+            }
+
+            var inst = Instantiate(projectileToInstantiate, _activeWeaponGraphics.ShootTransform.position, _activeWeaponGraphics.ShootTransform.rotation);
+
+            return inst;
+        }
 
 
         private void Start()
@@ -74,14 +125,8 @@ namespace TPS
 
             if (!CanShoot) return;
 
-            var projectileToInstantiate = _defaultProjectilePrefab;
+            var inst = _projectilePool.Get();
 
-            if (_weapon.ProjectilePrefab)
-            {
-                projectileToInstantiate = _weapon.ProjectilePrefab;
-            }
-
-            var inst = Instantiate(projectileToInstantiate, _activeWeaponGraphics.ShootTransform.position, _activeWeaponGraphics.ShootTransform.rotation);
 
             if (inst.TryGetComponent<ProjectileDamage>(out var projectileDamage))
             {
