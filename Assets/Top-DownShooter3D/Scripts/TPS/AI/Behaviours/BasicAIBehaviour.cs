@@ -23,19 +23,28 @@ namespace TPS.AI.Behaviours
         }
 
 
-        public override void End(AIController aIController)
+        protected override void Execute(AIController aIController)
         {
             var player = _matchInstance.Player;
 
             var movement = aIController.GetComponent<CharacterMovement>();
+            var dist = Vector3.Distance(player.transform.position, aIController.transform.position);
 
-            var dir = (player.transform.position - aIController.transform.position).normalized;
+            if (dist < _acceptanceRadius)
+            {
+                movement.MovementInput = Vector3.zero;
+            }
 
-            movement.MovementInput = new Vector2(dir.x, dir.z);
+            else
+            {
+                var dir = (player.transform.position - aIController.transform.position).normalized;
+
+                movement.MovementInput = new Vector2(dir.x, dir.z);
+            }
         }
 
 
-        public override void Update(AIController aIController)
+        public override void End(AIController aIController)
         {
 
         }
