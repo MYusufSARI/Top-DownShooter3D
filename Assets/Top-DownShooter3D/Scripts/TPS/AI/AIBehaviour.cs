@@ -4,15 +4,8 @@ using UnityEngine;
 
 namespace TPS.AI
 {
-    public class AIController : MonoBehaviour
+    public class AIBehaviour : ScriptableObject
     {
 
-
-
-
-        private void Update()
-        {
-            
-        }
     }
 }
