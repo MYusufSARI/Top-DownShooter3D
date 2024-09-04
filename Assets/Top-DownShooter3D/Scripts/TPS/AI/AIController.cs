@@ -14,7 +14,28 @@ namespace TPS.AI
             get => _aiBehaviour;
             set
             {
+                if (_aiBehaviour)
+                {
+                    _aiBehaviour.End(this);
+                }
+
                 _aiBehaviour = value;
+
+                if (_aiBehaviour)
+                {
+                    _aiBehaviour.Begin(this);
+                }
+
+            }
+        }
+
+
+
+        private void Awake()
+        {
+            if (_aiBehaviour)
+            {
+                _aiBehaviour.Begin(this);
             }
         }
 
