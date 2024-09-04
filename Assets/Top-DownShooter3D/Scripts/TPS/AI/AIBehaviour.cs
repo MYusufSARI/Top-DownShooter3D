@@ -9,7 +9,7 @@ namespace TPS.AI
     {
         public abstract void Begin(AIController aIController);
 
-        public  void Update(AIController aIController)
+        public  void OnUpdate(AIController aIController)
         {
             Profiler.BeginSample("AI Behaviour" + name);
 
