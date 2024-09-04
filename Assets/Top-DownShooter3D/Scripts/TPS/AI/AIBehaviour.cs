@@ -25,7 +25,7 @@ namespace TPS.AI
 
         public virtual AIState CreateState()
         {
-            return null;
+            return new NullAIState();
         }
     }
 }
