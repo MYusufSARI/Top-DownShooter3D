@@ -33,7 +33,7 @@ namespace TPS.AI.Behaviours
             {
                 return;
             }
-
+            
             var player = _matchInstance.Player;
 
             var movement = state.CharacterMovement;
