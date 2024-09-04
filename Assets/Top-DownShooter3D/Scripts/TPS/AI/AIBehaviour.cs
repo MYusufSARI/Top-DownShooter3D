@@ -11,7 +11,7 @@ namespace TPS.AI
 
         public  void OnUpdate(AIController aIController)
         {
-            Profiler.BeginSample("AI Behaviour" + name);
+            Profiler.BeginSample($"AI Behaviour({name}).Enxecute");
 
             Execute(aIController);
 

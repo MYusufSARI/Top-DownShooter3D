@@ -25,7 +25,6 @@ namespace TPS.AI
                 {
                     _aiBehaviour.Begin(this);
                 }
-
             }
         }
 
