@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,5 +22,10 @@ namespace TPS.AI
         public abstract void End(AIController aIController);
 
         protected abstract void Execute(AIController aIController);
+
+        public virtual AIState CreateState()
+        {
+            return null;
+        }
     }
 }
