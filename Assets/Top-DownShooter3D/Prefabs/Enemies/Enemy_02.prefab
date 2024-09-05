@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 6211025253929324560}
   - component: {fileID: 4303206356229130845}
   - component: {fileID: 9021379296009421389}
-  - component: {fileID: 6002096521685847127}
+  - component: {fileID: 6010785822744323776}
   m_Layer: 0
   m_Name: Enemy_02
   m_TagString: Untagged
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 3
---- !u!114 &6002096521685847127
+--- !u!114 &6010785822744323776
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,8 +180,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6586111371021656692}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1ad5507d81b94fc6b922d758894c725, type: 3}
+  m_Script: {fileID: 11500000, guid: 97a63e474483e4b65b2c3a539096c9ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _matchInstance: {fileID: 11400000, guid: f95eb7437d93449a1a9a56c95273c5eb, type: 2}
-  _acceptanceRadius: 1
+  _aiBehaviour: {fileID: 11400000, guid: ecc2852f81b5a43bb8c04db7ed221ae6, type: 2}
