@@ -8,7 +8,7 @@ using TPS.Input;
 
 namespace TPS.Mediatiors
 {
-    public class PlayerMediator : MonoBehaviour
+    public class PlayerMediator : MonoBehaviour, IDamageable
     {
         [Header("Data")]
         private CharacterMovement _characterMovement;
@@ -18,6 +18,7 @@ namespace TPS.Mediatiors
 
         [Header("Settings")]
         [SerializeField] private float _dodgePower;
+        [SerializeField] private float _health;
 
         [Header("Elements")]
         private Camera _mainCamera;
@@ -107,6 +108,11 @@ namespace TPS.Mediatiors
                     _characterMovement.Rotation = angle;
                 }
             }
+        }
+
+        public void ApplyDamage(float damage, GameObject causer = null)
+        {
+            _health -= damage;
         }
     }
 }
