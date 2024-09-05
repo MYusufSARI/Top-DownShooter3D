@@ -24,6 +24,7 @@ namespace TPS.AI.Behaviours
             {
                 state.CharacterMovement = aiController.GetComponent<CharacterMovement>();
                 state.Attacker = aiController.GetComponent<EnemyAttacker>();
+                state.PlayerDamageable = _matchInstance.Player.GetComponent<IDamageable>();
             }
         }
 
@@ -36,9 +37,7 @@ namespace TPS.AI.Behaviours
             }
             
             var player = _matchInstance.Player;
-
             var movement = state.CharacterMovement;
-
             var dist = Vector3.Distance(player.transform.position, aiController.transform.position);
 
             if (dist < _acceptanceRadius)
@@ -51,6 +50,11 @@ namespace TPS.AI.Behaviours
                 var dir = (player.transform.position - aiController.transform.position).normalized;
 
                 movement.MovementInput = new Vector2(dir.x, dir.z);
+            }
+
+            if (dist<state.Attacker.Range)
+            {
+                state.Attacker.Attack(state.PlayerDamageable);
             }
         }
 

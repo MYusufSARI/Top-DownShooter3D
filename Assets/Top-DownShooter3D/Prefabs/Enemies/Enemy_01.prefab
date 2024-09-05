@@ -116,7 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 0.5
   _attackRate: 1
-  _range: 1
+  _range: 2
 --- !u!1 &7153901154394008351
 GameObject:
   m_ObjectHideFlags: 0

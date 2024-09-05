@@ -14,7 +14,9 @@ namespace TPS
 
         private float _lastAttack;
 
-        public bool CanAttack => _lastAttack + _attackRate > Time.time;
+        public float Range => _range;
+
+        public bool CanAttack => Time.time > _lastAttack + _attackRate;
 
         public bool IsCurrentlyAttacking { get; private set; }
 

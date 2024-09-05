@@ -10,5 +10,7 @@ namespace TPS.AI.States
         public CharacterMovement CharacterMovement { get; set; }
 
         public EnemyAttacker Attacker { get; internal set; }
+
+        public IDamageable PlayerDamageable { get; internal set; }
     }
 }
