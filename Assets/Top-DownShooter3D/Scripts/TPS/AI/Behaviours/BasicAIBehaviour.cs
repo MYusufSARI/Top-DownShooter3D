@@ -18,18 +18,19 @@ namespace TPS.AI.Behaviours
 
 
 
-        public override void Begin(AIController aIController)
+        public override void Begin(AIController aiController)
         {
-            if (aIController.TryGetState<BasicAIState>(out var state))
+            if (aiController.TryGetState<BasicAIState>(out var state))
             {
-                state.CharacterMovement = aIController.GetComponent<CharacterMovement>();
+                state.CharacterMovement = aiController.GetComponent<CharacterMovement>();
+                state.Attacker = aiController.GetComponent<EnemyAttacker>();
             }
         }
 
 
-        protected override void Execute(AIController aIController)
+        protected override void Execute(AIController aiController)
         {
-            if (aIController.TryGetState<BasicAIState>(out var state))
+            if (!aiController.TryGetState<BasicAIState>(out var state))
             {
                 return;
             }
@@ -38,16 +39,16 @@ namespace TPS.AI.Behaviours
 
             var movement = state.CharacterMovement;
 
-            var dist = Vector3.Distance(player.transform.position, aIController.transform.position);
+            var dist = Vector3.Distance(player.transform.position, aiController.transform.position);
 
             if (dist < _acceptanceRadius)
             {
                 movement.MovementInput = Vector3.zero;
             }
 
-            else
+            else if (!state.Attacker.IsCurrentlyAttacking)
             {
-                var dir = (player.transform.position - aIController.transform.position).normalized;
+                var dir = (player.transform.position - aiController.transform.position).normalized;
 
                 movement.MovementInput = new Vector2(dir.x, dir.z);
             }
