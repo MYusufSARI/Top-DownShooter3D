@@ -40,12 +40,7 @@ namespace TPS.AI.Behaviours
             var movement = state.CharacterMovement;
             var dist = Vector3.Distance(player.transform.position, aiController.transform.position);
 
-            if (dist < _acceptanceRadius)
-            {
-                movement.MovementInput = Vector3.zero;
-            }
-
-            else if (!state.Attacker.IsCurrentlyAttacking)
+            if (dist< _acceptanceRadius || !state.Attacker.IsCurrentlyAttacking)
             {
                 var dir = (player.transform.position - aiController.transform.position).normalized;
 

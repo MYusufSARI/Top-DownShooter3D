@@ -36,6 +36,8 @@ namespace TPS.Movement
             _characterController.SimpleMove(movement * _moveSpeed + ExternalForces);
 
             ExternalForces = Vector3.Lerp(ExternalForces, Vector3.zero, 9 * Time.deltaTime);
+
+            MovementInput = Vector2.zero;
         }
     }
 }
