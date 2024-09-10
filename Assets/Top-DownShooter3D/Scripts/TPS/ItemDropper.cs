@@ -6,6 +6,13 @@ namespace TPS
 {
     public class ItemDropper : MonoBehaviour
     {
+        [Header("Settings")]
+        [SerializeField] private float _xp;
 
+
+        public void OnDied()
+        {
+
+        }
     }
 }
