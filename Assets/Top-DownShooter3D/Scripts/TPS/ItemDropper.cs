@@ -10,9 +10,10 @@ namespace TPS
         [SerializeField] private float _xp;
 
 
+
         public void OnDied()
         {
-
+            
         }
     }
 }
