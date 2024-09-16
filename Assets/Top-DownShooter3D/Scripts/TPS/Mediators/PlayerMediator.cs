@@ -61,6 +61,12 @@ namespace TPS.Mediatiors
         }
 
 
+        private void OnAttractorXPCollected(float xp)
+        {
+            _xp += _xp;
+        }
+
+
         private void OnShootRequested(InputAction.CallbackContext context)
         {
             _shooter.Shoot();
@@ -115,6 +121,7 @@ namespace TPS.Mediatiors
                 }
             }
         }
+
 
         public void ApplyDamage(float damage, GameObject causer = null)
         {
