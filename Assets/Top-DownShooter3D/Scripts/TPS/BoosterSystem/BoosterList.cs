@@ -8,7 +8,7 @@ namespace TPS.BoosterSystem
     public class BoosterList : ScriptableObject
     {
         [Header("Elements")]
-        private List<Booster> _boosters = new List<Booster>();
+        [SerializeField] private List<Booster> _boosters = new List<Booster>();
 
         public int Length => _boosters.Count;
         public Booster Get(int i) => _boosters[i];
