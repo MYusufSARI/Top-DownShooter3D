@@ -9,7 +9,8 @@ namespace TPS
         [Header("Settings")]
         [SerializeField] private float _xp;
 
-
+        [Header("Data")]
+        [SerializeField] private XPCollectable _xpCollectablePrefab;
 
         public void OnDied()
         {
