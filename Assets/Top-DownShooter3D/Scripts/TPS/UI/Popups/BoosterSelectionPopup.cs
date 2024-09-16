@@ -16,6 +16,13 @@ namespace TPS.UI
         [SerializeField] private Transform _container;
 
 
+
+        private void Start()
+        {
+            Open();
+        }
+
+
         protected override void OnOpened()
         {
             base.OnOpened();

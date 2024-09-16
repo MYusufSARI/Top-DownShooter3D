@@ -26,7 +26,7 @@ namespace TPS.UI
 
         public void Open()
         {
-            if (!IsOpen)
+            if (IsOpen)
                 return;
 
             _canvas.enabled = true;
@@ -38,7 +38,7 @@ namespace TPS.UI
 
         public void Close()
         {
-            if (IsOpen)
+            if (!IsOpen)
                 return;
 
             _canvas.enabled = false;
