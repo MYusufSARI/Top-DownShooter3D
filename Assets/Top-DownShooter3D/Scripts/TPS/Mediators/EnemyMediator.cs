@@ -9,6 +9,16 @@ namespace TPS.Mediatiors
         [Header("Settings")]
         [SerializeField] private float _health;
 
+        [Header("Data")]
+        private ItemDropper _itemDropper;
+
+
+
+        private void Awake()
+        {
+            _itemDropper = GetComponent<ItemDropper>();
+        }
+
 
         public void ApplyDamage(float damage, GameObject causer = null)
         {
@@ -17,6 +27,11 @@ namespace TPS.Mediatiors
             if (_health <= 0)
             {
                 gameObject.SetActive(false);
+
+                if (_itemDropper)
+                {
+                    _itemDropper.OnDied();
+                }
             }
         }
     }
