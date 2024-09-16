@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using TPS.Mediatiors;
 using UnityEngine;
 
-public class MovementSpeedBooster : MonoBehaviour
+namespace TPS.BoosterSystem.Boosters
 {
-    // Start is called before the first frame update
-    void Start()
+    public class MovementSpeedBooster : Booster
     {
-        
-    }
+        [Header("Settings")]
+        [SerializeField] private float _value;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+
+        public override void OnAdded(BoosterContainer container)
+        {
+            if(container.TryGetComponent<PlayerMediator>(out var mediator))
+            {
+                mediator.Attributes.MovementSpeed += mediator.Attributes.MovementSpeed * _value;
+            }
+        }
     }
 }
