@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TPS.Utils;
 using UnityEngine;
 
 namespace TPS
@@ -14,6 +16,7 @@ namespace TPS
         [SerializeField] private LayerMask _layerMask;
         private Collider[] _collectablesInRange = new Collider[20];
 
+        public event Action<float> OnXPCollected;
 
 
         private void Start()
@@ -33,7 +36,22 @@ namespace TPS
 
                 var hitCount = Physics.OverlapSphereNonAlloc(transform.position, _attractionRadius, _collectablesInRange, _layerMask);
 
+                for (int i = 0; i < hitCount; i++)
+                {
+                    var collider = _collectablesInRange[i];
+                    collider.enabled= false;
 
+                    var follower = collider.gameObject.AddComponent<SmoothFollower>();
+                    follower.Target = transform;
+                    follower.OnReachedDestination += () =>
+                    {
+                        var collectable = follower.GetComponent<XPCollectable>();
+
+                        OnXPCollected?.Invoke(collectable.XP);
+
+                        Destroy(follower.gameObject);
+                    };
+                }
             }
         }
     }

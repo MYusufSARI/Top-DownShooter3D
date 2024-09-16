@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TPS
+namespace TPS.Utils
 {
     public class TransformFollower : MonoBehaviour
     {
