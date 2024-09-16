@@ -63,7 +63,7 @@ namespace TPS.Mediatiors
 
         private void OnAttractorXPCollected(float xp)
         {
-            _xp += _xp;
+            _xp += xp;
         }
 
 
