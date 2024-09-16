@@ -5,11 +5,11 @@ using UnityEngine;
 
 namespace TPS.BoosterSystem.Boosters
 {
+    [CreateAssetMenu(menuName = "Boosters/Movement Speed")]
     public class MovementSpeedBooster : Booster
     {
         [Header("Settings")]
         [SerializeField] private float _value;
-
 
 
         public override void OnAdded(BoosterContainer container)

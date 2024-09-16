@@ -5,8 +5,8 @@ using UnityEngine;
 
 namespace TPS.BoosterSystem.Boosters
 {
-    [CreateAssetMenu(menuName = "Boosters/Damage")]
-    public class DamageBooster : Booster
+    [CreateAssetMenu(menuName = "Boosters/Defence")]
+    public class DefenceBooster : Booster
     {
         [Header("Settings")]
         [SerializeField] private float _value;
@@ -14,9 +14,9 @@ namespace TPS.BoosterSystem.Boosters
 
         public override void OnAdded(BoosterContainer container)
         {
-            if(container.TryGetComponent<PlayerMediator>(out var mediator))
+            if (container.TryGetComponent<PlayerMediator>(out var mediator))
             {
-                mediator.Attributes.Damage += _value;
+                mediator.Attributes.Defence += _value;
             }
         }
     }
