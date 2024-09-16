@@ -8,6 +8,10 @@ namespace TPS
     {
         [Header("Settings")]
         [SerializeField] private float _tickInterval = 0.7f;
+        [SerializeField] private float _attractionRadius = 5f;
+
+        [Header("Elements")]
+        private Collider[] _collectablesInRange = new Collider[20];
 
 
 
@@ -22,6 +26,11 @@ namespace TPS
             while (true)
             {
                 yield return new WaitForSeconds(_tickInterval);
+
+                if (!enabled)
+                    yield return null;
+
+                var hitCount = Physics.OverlapSphereNonAlloc(transform.position, _attractionRadius, _collectablesInRange);
 
 
             }
