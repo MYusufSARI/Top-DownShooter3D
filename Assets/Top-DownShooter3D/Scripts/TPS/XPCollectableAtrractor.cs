@@ -11,6 +11,7 @@ namespace TPS
         [SerializeField] private float _attractionRadius = 5f;
 
         [Header("Elements")]
+        [SerializeField] private LayerMask _layerMask;
         private Collider[] _collectablesInRange = new Collider[20];
 
 
@@ -30,7 +31,7 @@ namespace TPS
                 if (!enabled)
                     yield return null;
 
-                var hitCount = Physics.OverlapSphereNonAlloc(transform.position, _attractionRadius, _collectablesInRange);
+                var hitCount = Physics.OverlapSphereNonAlloc(transform.position, _attractionRadius, _collectablesInRange, _layerMask);
 
 
             }
