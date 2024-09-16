@@ -10,12 +10,17 @@ namespace TPS.Mediatiors
 {
     public class PlayerMediator : MonoBehaviour, IDamageable
     {
+        [SerializeField] private Attributes _attributes;
+        public Attributes Attributes => _attributes;
+
         [Header("Data")]
         private CharacterMovement _characterMovement;
         private Shooter _shooter;
         private GameInput _gameInput;
         private Plane _plane;
         private XPCollectableAttractor _xpCollectableAttractor;
+
+
 
         [Header("Settings")]
         [SerializeField] private float _dodgePower;
@@ -82,12 +87,22 @@ namespace TPS.Mediatiors
 
         private void Update()
         {
+            HandleAttributes();
             HandleMovement();
 
             if (_gameInput.Player.Shoot.IsPressed())
             {
                 _shooter.Shoot();
             }
+        }
+
+
+        private void HandleAttributes()
+        {
+            _characterMovement.MovementSpeed = Attributes.MovementSpeed;
+
+            _shooter.AttackSpeedMultiplier = Attributes.AttackSpeed;
+            _shooter.BaseDamage = Attributes.Damage;
         }
 
 

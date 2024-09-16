@@ -23,7 +23,11 @@ namespace TPS
         [SerializeField] private Transform _shootTransform;
         [SerializeField] private Transform _weaponContainer;
 
-        public bool CanShoot => Time.time > _lastShootTime + _weapon.FireRate;
+        public bool CanShoot => Time.time > _lastShootTime + (_weapon.FireRate / AttackSpeedMultiplier);
+
+        public float AttackSpeedMultiplier { get; set; } = 1;
+
+        public float BaseDamage { get;  set; }
 
         [Header("Pool")]
         private IObjectPool<GameObject> _projectilePool;
@@ -157,7 +161,7 @@ namespace TPS
 
             if (inst.TryGetComponent<ProjectileDamage>(out var projectileDamage))
             {
-                projectileDamage.Damage = _weapon.BaseDamage;
+                projectileDamage.Damage = _weapon.BaseDamage + BaseDamage;
             }
 
             var rand = Random.value;

@@ -11,14 +11,20 @@ namespace TPS.Movement
         private CharacterController _characterController;
 
         [Header("Settings")]
-        [SerializeField] private float _moveSpeed = 4f;
+        [SerializeField] private float _movementSpeed = 4f;
 
         public Vector2 MovementInput { get; set; }
         public Vector3 ExternalForces { get; set; }
+
+        public float MovementSpeed
+        {
+            get => _movementSpeed;
+            set => _movementSpeed = value;
+        }
+
         public float Rotation { get; set; }
 
         public Vector3 Velocity => _characterController.velocity;
-
 
 
         private void Awake()
@@ -33,7 +39,7 @@ namespace TPS.Movement
 
             transform.eulerAngles = new Vector3(0, Rotation);
 
-            _characterController.SimpleMove(movement * _moveSpeed + ExternalForces);
+            _characterController.SimpleMove(movement * _movementSpeed + ExternalForces);
 
             ExternalForces = Vector3.Lerp(ExternalForces, Vector3.zero, 9 * Time.deltaTime);
 

@@ -4,14 +4,15 @@ using UnityEngine;
 
 namespace TPS
 {
+    [System.Serializable]
     public class Attributes
     {
-        public float Damage;
+        public float Damage = 0;
 
-        public float MovementSpeed;
+        public float MovementSpeed = 5;
 
         public float AttackSpeed = 1;
 
-        public float Defence;
+        public float Defence = 0;
     }
 }
