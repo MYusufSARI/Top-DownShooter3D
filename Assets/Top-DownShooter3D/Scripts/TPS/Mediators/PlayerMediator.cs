@@ -46,16 +46,18 @@ namespace TPS.Mediatiors
         private void OnEnable()
         {
             _gameInput.Enable();
-
             _gameInput.Player.Dodge.performed += OnDodgeRequested;
+
+            _xpCollectableAttractor.OnXPCollected += OnAttractorXPCollected;
         }
 
 
         private void OnDisable()
         {
             _gameInput.Disable();
-
             _gameInput.Player.Dodge.performed -= OnDodgeRequested;
+
+            _xpCollectableAttractor.OnXPCollected -= OnAttractorXPCollected;
         }
 
 
