@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace TPS
 {
-    public class XPCollectableAtrractor : MonoBehaviour
+    public class XPCollectableAttractor : MonoBehaviour
     {
         [Header("Settings")]
         [SerializeField] private float _tickInterval = 0.7f;

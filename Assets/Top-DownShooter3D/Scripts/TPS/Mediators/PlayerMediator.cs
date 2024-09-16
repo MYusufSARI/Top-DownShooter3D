@@ -15,10 +15,12 @@ namespace TPS.Mediatiors
         private Shooter _shooter;
         private GameInput _gameInput;
         private Plane _plane;
+        private XPCollectableAttractor _xpCollectableAttractor;
 
         [Header("Settings")]
         [SerializeField] private float _dodgePower;
         [SerializeField] private float _health;
+        private float _xp;
 
         [Header("Elements")]
         private Camera _mainCamera;
@@ -30,6 +32,8 @@ namespace TPS.Mediatiors
             _characterMovement = GetComponent<CharacterMovement>();
 
             _shooter = GetComponent<Shooter>();
+
+            _xpCollectableAttractor = GetComponent<XPCollectableAttractor>();
 
             _gameInput = new GameInput();
 
