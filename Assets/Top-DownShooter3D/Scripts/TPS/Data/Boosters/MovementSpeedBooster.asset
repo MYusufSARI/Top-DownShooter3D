@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: MovementSpeedBooster
   m_EditorClassIdentifier: 
   _boosterName: Movement Speed
-  _description: Adds +20% movement speed
-  _value: 0.2
+  _description: Adds +10% movement speed
+  _value: 0.1
