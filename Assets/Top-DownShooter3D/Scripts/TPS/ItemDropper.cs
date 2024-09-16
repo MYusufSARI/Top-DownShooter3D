@@ -17,7 +17,7 @@ namespace TPS
 
         public void OnDied()
         {
-            if (_xpCollectablePrefab && Random.value > _xpDropChange)
+            if (_xpCollectablePrefab && Random.value < _xpDropChange)
             {
                 var inst = Instantiate(_xpCollectablePrefab, transform.position, Quaternion.identity);
 
