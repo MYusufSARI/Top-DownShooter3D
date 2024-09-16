@@ -2,17 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class XPCollectableAtrractor : MonoBehaviour
+namespace TPS
 {
-    // Start is called before the first frame update
-    void Start()
+    public class XPCollectableAtrractor : MonoBehaviour
     {
-        
-    }
+        [Header("Settings")]
+        [SerializeField] private float _tickInterval = 0.7f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+
+        private void Start()
+        {
+            StartCoroutine(Execute());
+        }
+
+
+        private IEnumerator Execute()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(_tickInterval);
+            }
+        }
     }
 }
