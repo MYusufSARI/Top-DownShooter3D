@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 2469192133431565376}
   - component: {fileID: 3743463019067041105}
   - component: {fileID: 6220981739922391182}
+  - component: {fileID: 3045418095779273061}
   m_Layer: 0
   m_Name: PF_Player
   m_TagString: Untagged
@@ -222,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa7d57973204d4e02aedf8261adba9c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 5
+  _movementSpeed: 4
 --- !u!114 &2469192133431565376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,6 +236,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba49b34ffd0174a82a064654d29b87fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _attributes:
+    _damage: 0
+    _movementSpeed: 5
+    _attackSpeed: 1
+    _defence: 0
   _dodgePower: 15
   _health: 10
 --- !u!114 &3743463019067041105
@@ -271,3 +277,15 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &3045418095779273061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5322596824978053775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ed58b3de28034762a8d16bf2e3735ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
