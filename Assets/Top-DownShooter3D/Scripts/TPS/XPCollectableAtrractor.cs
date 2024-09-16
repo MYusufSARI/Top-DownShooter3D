@@ -22,6 +22,8 @@ namespace TPS
             while (true)
             {
                 yield return new WaitForSeconds(_tickInterval);
+
+
             }
         }
     }
