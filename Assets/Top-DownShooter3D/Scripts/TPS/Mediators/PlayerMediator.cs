@@ -21,10 +21,17 @@ namespace TPS.Mediatiors
         [SerializeField] private float _dodgePower;
         [SerializeField] private float _health;
         private float _xp;
+        private int _level;
+
+        public int Level => _level;
+
+        public float MaxXP => (_level + 1) * 5;
 
         [Header("Elements")]
         private Camera _mainCamera;
 
+
+        public event Action<int> OnLevelUp;
 
 
         private void Awake()
@@ -63,7 +70,7 @@ namespace TPS.Mediatiors
 
         private void OnAttractorXPCollected(float xp)
         {
-            _xp += xp;
+            AddXP(xp);
         }
 
 
@@ -119,6 +126,20 @@ namespace TPS.Mediatiors
 
                     _characterMovement.Rotation = angle;
                 }
+            }
+        }
+
+
+        private void AddXP(float value)
+        {
+            _xp += value;
+
+            if (_xp > MaxXP)
+            {
+                _level++;
+                _xp = 0;
+
+                OnLevelUp?.Invoke(_level);
             }
         }
 

@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3841f4dc7e1864041a74dcfab861badd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tickInterval: 0.7
+  _tickInterval: 0.5
   _attractionRadius: 5
   _layerMask:
     serializedVersion: 2
