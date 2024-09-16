@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace TPS.BoosterSystem
 {
-    public class Booster : MonoBehaviour
+    public abstract class Booster : ScriptableObject
     {
-
+        public abstract void OnAdded(BoosterContainer container);
     }
 }
