@@ -74,12 +74,6 @@ namespace TPS.Mediatiors
         }
 
 
-        private void OnShootRequested(InputAction.CallbackContext context)
-        {
-            _shooter.Shoot();
-        }
-
-
         private void OnDodgeRequested(InputAction.CallbackContext context)
         {
             _characterMovement.ExternalForces += _characterMovement.Velocity.normalized * _dodgePower;
@@ -134,7 +128,7 @@ namespace TPS.Mediatiors
         {
             _xp += value;
 
-            if (_xp > MaxXP)
+            if (_xp >= MaxXP)
             {
                 _level++;
                 _xp = 0;

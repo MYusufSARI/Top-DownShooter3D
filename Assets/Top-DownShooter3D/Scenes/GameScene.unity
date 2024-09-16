@@ -908,11 +908,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF_Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6220981739922391182, guid: 250f87bdc3baf45c2b496c9a390b1497,
-        type: 3}
-      propertyPath: _tickInterval
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
