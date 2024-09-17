@@ -12,7 +12,7 @@ namespace TPS
         [SerializeField, Range(0, 1)] private float _xpDropChange;
 
         [Header("Data")]
-        [SerializeReference] private WeaponDropChance[] _weaponDropChances;
+        [SerializeField] private WeaponDropChance[] _weaponDropChances;
         [SerializeField] private XPCollectable _xpCollectablePrefab;
         [SerializeField] private WeaponCollectible _weaponCollectiblePrefab;
 
