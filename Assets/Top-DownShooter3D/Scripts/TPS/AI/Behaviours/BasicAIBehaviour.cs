@@ -46,7 +46,7 @@ namespace TPS.AI.Behaviours
 
                 movement.MovementInput = new Vector2(dir.x, dir.z);
 
-                player.transform.rotation = Quaternion.LookRotation(dir);
+                aiController.transform.rotation = Quaternion.LookRotation(dir);
 
             }
 
