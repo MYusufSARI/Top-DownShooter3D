@@ -12,6 +12,8 @@ namespace TPS.UI
         [SerializeField] private BoosterList _boosterList;
         [SerializeField] private BoosterCard _boosterCardPreab;
 
+        public BoosterContainer TargetBoosterContainer { get; set; }
+
         [Header("Elements")]
         [SerializeField] private Transform _container;
 
@@ -27,6 +29,13 @@ namespace TPS.UI
 
                 var inst = Instantiate(_boosterCardPreab, _container);
                 inst.Booster = randomBooster;
+
+                inst.OnClicked += () =>
+                {
+                    TargetBoosterContainer.AddBooster(inst.Booster);
+
+                    Close();
+                };
             }
         }
 

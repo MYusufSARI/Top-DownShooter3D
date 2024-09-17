@@ -6,6 +6,7 @@ using UnityEngine;
 using TPS.Movement;
 using TPS.Input;
 using TPS.UI;
+using TPS.BoosterSystem;
 
 namespace TPS.Mediatiors
 {
@@ -20,6 +21,7 @@ namespace TPS.Mediatiors
         private GameInput _gameInput;
         private Plane _plane;
         private XPCollectableAttractor _xpCollectableAttractor;
+        private BoosterContainer _boosterContainer;
 
 
 
@@ -47,6 +49,8 @@ namespace TPS.Mediatiors
             _shooter = GetComponent<Shooter>();
 
             _xpCollectableAttractor = GetComponent<XPCollectableAttractor>();
+
+            _boosterContainer = GetComponent<BoosterContainer>();
 
             _gameInput = new GameInput();
 
@@ -156,7 +160,10 @@ namespace TPS.Mediatiors
             _level++;
             _xp = 0;
 
-            PopupChannel.RequestPopup<BoosterSelectionPopup>();
+            if (PopupChannel.TryGetPopup<BoosterSelectionPopup>(out var popup))
+            {
+                popup.TargetBoosterContainer = _boosterContainer;
+            }
 
             OnLevelUp?.Invoke(_level);
         }
