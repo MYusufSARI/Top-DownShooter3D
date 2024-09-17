@@ -163,6 +163,8 @@ namespace TPS.Mediatiors
             if (PopupChannel.TryGetPopup<BoosterSelectionPopup>(out var popup))
             {
                 popup.TargetBoosterContainer = _boosterContainer;
+
+                popup.Open();
             }
 
             OnLevelUp?.Invoke(_level);

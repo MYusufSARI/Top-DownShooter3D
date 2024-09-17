@@ -23,6 +23,11 @@ namespace TPS.UI
         {
             Time.timeScale = 0;
 
+            foreach (Transform c in _container)
+            {
+                Destroy(c.gameObject);
+            }
+
             for (int i = 0; i < 3; i++)
             {
                 var randomBooster = _boosterList.Get(Random.Range(0, _boosterList.Length));
