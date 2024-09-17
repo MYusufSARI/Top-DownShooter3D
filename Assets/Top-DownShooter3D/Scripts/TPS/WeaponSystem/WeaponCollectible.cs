@@ -10,6 +10,12 @@ namespace TPS.WeaponSystem
         [Header("Data")]
         [SerializeField] private Weapon _weapon;
 
+        public Weapon Weapon
+        {
+            get => _weapon;
+            set => _weapon = value;
+        }
+
 
 
         private void Start()

@@ -12,8 +12,10 @@ namespace TPS
         [SerializeField, Range(0, 1)] private float _xpDropChange;
 
         [Header("Data")]
+        [SerializeReference] private WeaponDropChance[] _weaponDropChances;
         [SerializeField] private XPCollectable _xpCollectablePrefab;
-        [SerializeField] private WeaponDropChance[] _weaponDropChances;
+        [SerializeField] private WeaponCollectible _weaponCollectiblePrefab;
+
 
 
         public void OnDied()
@@ -24,13 +26,24 @@ namespace TPS
 
                 inst.XP = _xp;
             }
+
+            foreach (var weaponDrop in _weaponDropChances)
+            {
+                if (Random.value < weaponDrop.Chance)
+                {
+                    var inst = Instantiate(_weaponCollectiblePrefab, transform.position, Quaternion.identity);
+                    inst.Weapon = weaponDrop.Weapon;
+
+                    break;
+                }
+            }
         }
     }
 
     [System.Serializable]
     public class WeaponDropChance
     {
-        public Weapon weapon;
+        public Weapon Weapon;
 
         public float Chance;
     }
