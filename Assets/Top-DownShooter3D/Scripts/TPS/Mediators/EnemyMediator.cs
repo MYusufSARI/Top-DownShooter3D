@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TPS.AI;
 using TPS.Animating;
 using UnityEngine;
 
@@ -14,6 +16,7 @@ namespace TPS.Mediatiors
         private ItemDropper _itemDropper;
         private EnemyAttacker _enemyAttacker;
         private EnemyAnimation _enemyAnimation;
+        private AIController _aiController;
 
 
 
@@ -22,6 +25,25 @@ namespace TPS.Mediatiors
             _itemDropper = GetComponent<ItemDropper>();
             _enemyAttacker = GetComponent<EnemyAttacker>();
             _enemyAnimation = GetComponent<EnemyAnimation>();
+            _aiController = GetComponent<AIController>();
+        }
+
+
+        private void OnEnable()
+        {
+            _enemyAttacker.OnAttacked += EnemyAttacker_Attacked;
+        }
+
+
+        private void OnDisable()
+        {
+            _enemyAttacker.OnAttacked -= EnemyAttacker_Attacked;
+        }
+
+
+        private void EnemyAttacker_Attacked(IDamageable obj)
+        {
+            _enemyAnimation.PlayAttackAnimation();
         }
 
 
@@ -31,13 +53,24 @@ namespace TPS.Mediatiors
 
             if (_health <= 0)
             {
-                gameObject.SetActive(false);
+                _enemyAnimation.PlayDeathAnimation();
+
+                _aiController.enabled = false;
+                StartCoroutine(DisableDelayed());
 
                 if (_itemDropper)
                 {
                     _itemDropper.OnDied();
                 }
             }
+        }
+
+
+        private IEnumerator DisableDelayed()
+        {
+            yield return new WaitForSeconds(2);
+
+                gameObject.SetActive(false);
         }
     }
 }
