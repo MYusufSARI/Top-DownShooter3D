@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TPS.WeaponSystem;
 using UnityEngine;
 
@@ -34,6 +35,13 @@ namespace TPS
                     var inst = Instantiate(_weaponCollectiblePrefab, transform.position, Quaternion.identity);
                     inst.Weapon = weaponDrop.Weapon;
 
+                    Vector3 randomPointOnCircle = Random.insideUnitCircle;
+                    randomPointOnCircle.z = randomPointOnCircle.y;
+                    randomPointOnCircle.y = 0;
+
+                    randomPointOnCircle.Normalize();
+
+                    inst.transform.DOJump(transform.position + randomPointOnCircle * 5, 1, 1, .04f);
                     break;
                 }
             }
