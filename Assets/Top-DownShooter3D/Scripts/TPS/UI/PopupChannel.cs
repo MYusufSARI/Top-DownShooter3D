@@ -73,5 +73,14 @@ namespace TPS.UI
 
             return false;
         }
+
+
+        public static void RequestPopup<T>() where T : Popup
+        {
+            if (TryGetPopup<T>(out T popup))
+            {
+                popup.Open();
+            }
+        }
     }
 }
