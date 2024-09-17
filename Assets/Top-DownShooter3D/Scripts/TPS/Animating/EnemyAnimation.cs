@@ -11,7 +11,7 @@ namespace TPS.Animating
 
         [Header("Readonly")]
         private static readonly int Attack = Animator.StringToHash("Attack");
-        private static readonly int IsDead = Animator.StringToHash("Death");
+        private static readonly int IsDead = Animator.StringToHash("IsDead");
 
 
         public void PlayAttackAnimation()

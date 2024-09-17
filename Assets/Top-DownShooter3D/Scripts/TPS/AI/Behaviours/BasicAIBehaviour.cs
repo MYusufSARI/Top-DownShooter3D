@@ -49,7 +49,9 @@ namespace TPS.AI.Behaviours
             }
 
 
-            aiController.transform.rotation = Quaternion.LookRotation(dir);
+            var rotation = Quaternion.LookRotation(dir);
+
+            movement.Rotation = rotation.eulerAngles.y;
 
 
             if (dist < state.Attacker.Range)

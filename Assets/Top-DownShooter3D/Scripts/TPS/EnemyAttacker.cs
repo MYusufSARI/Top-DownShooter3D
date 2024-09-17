@@ -28,18 +28,23 @@ namespace TPS
 
         public void Attack(IDamageable target)
         {
-            if (!CanAttack) return;
+            if (!CanAttack)
+                return;
 
             _lastAttack = Time.time;
 
             OnAttacked?.Invoke(target);
 
+            _currentTarget = target;
             IsCurrentlyAttacking = true;
         }
 
 
         public void ExecuteDamage()
         {
+            if (_currentTarget == null)
+                return;
+
             if (_currentTarget is MonoBehaviour mb)
             {
                 if (Vector3.Distance(mb.transform.position, transform.position) < _range)
