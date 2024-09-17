@@ -41,5 +41,37 @@ namespace TPS.UI
 
             return false;
         }
+
+
+        public static T GetPopup<T>() where T : Popup
+        {
+            foreach (var popup in _popups)
+            {
+                if (popup is T casted)
+                {
+                    return casted;
+                }
+            }
+
+            return null;
+        }
+
+
+        public static bool TryGetPopup<T>(out T popup) where T : Popup
+        {
+            foreach (var p in _popups)
+            {
+                if (p is T casted)
+                {
+                    popup = casted;
+
+                    return true;
+                }
+            }
+
+            popup = null;
+
+            return false;
+        }
     }
 }
