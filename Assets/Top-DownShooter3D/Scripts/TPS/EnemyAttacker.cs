@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace TPS
 {
-    public class EnemyAttacker : MonoBehaviour
+    public class EnemyAttacker : MonoBehaviour, IDamageExecutor
     {
         public event Action<IDamageable> OnAttacked;
 

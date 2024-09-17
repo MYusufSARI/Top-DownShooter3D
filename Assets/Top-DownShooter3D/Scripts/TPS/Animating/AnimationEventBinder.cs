@@ -8,7 +8,12 @@ namespace TPS.Animating
     {
         public void ExecuteDamage()
         {
+            var executor = GetComponentInParent<IDamageExecutor>();
 
+            if (executor != null)
+            {
+                executor.ExecuteDamage();
+            }
         }
     }
 }
