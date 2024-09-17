@@ -14,7 +14,13 @@ namespace TPS.UI
         private Canvas _canvas;
         private GraphicRaycaster _raycaster;
 
+        [Header("Settings")]
+        [SerializeField] protected string _name;
+
+        public string Name => _name;
+
         public bool IsOpen => _canvas.enabled;
+
 
 
         private void Awake()
