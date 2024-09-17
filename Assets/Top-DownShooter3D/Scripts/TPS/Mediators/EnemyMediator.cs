@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TPS.Animating;
 using UnityEngine;
 
 namespace TPS.Mediatiors
@@ -11,12 +12,16 @@ namespace TPS.Mediatiors
 
         [Header("Data")]
         private ItemDropper _itemDropper;
+        private EnemyAttacker _enemyAttacker;
+        private EnemyAnimation _enemyAnimation;
 
 
 
         private void Awake()
         {
             _itemDropper = GetComponent<ItemDropper>();
+            _enemyAttacker = GetComponent<EnemyAttacker>();
+            _enemyAnimation = GetComponent<EnemyAnimation>();
         }
 
 

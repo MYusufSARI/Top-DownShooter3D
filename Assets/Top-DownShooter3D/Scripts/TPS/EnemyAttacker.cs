@@ -7,6 +7,8 @@ namespace TPS
 {
     public class EnemyAttacker : MonoBehaviour
     {
+        public event Action<IDamageable> OnAttacked;
+
         [Header("Settings")]
         [SerializeField] private float _damage;
         [SerializeField] private float _attackRate;
@@ -15,9 +17,7 @@ namespace TPS
         private float _lastAttack;
 
         public float Range => _range;
-
         public bool CanAttack => Time.time > _lastAttack + _attackRate;
-
         public bool IsCurrentlyAttacking { get; private set; }
 
 
@@ -27,6 +27,8 @@ namespace TPS
             if (!CanAttack) return;
 
             _lastAttack = Time.time;
+
+            OnAttacked?.Invoke(target);
 
             StartCoroutine(ApplyAttackDelayed(target));
         }

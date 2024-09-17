@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8288574140506012128}
   - component: {fileID: 283172983802084158}
   - component: {fileID: 4294049928639961183}
+  - component: {fileID: 1654675423903677550}
   m_Layer: 6
   m_Name: Enemy_01
   m_TagString: Untagged
@@ -141,6 +142,19 @@ MonoBehaviour:
     type: 3}
   _weaponCollectiblePrefab: {fileID: 7527808159638074674, guid: 01cd0dbfc07ee404aab3a8c2d418bf3f,
     type: 3}
+--- !u!114 &1654675423903677550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407790203724511445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82252bea5138240ab9fdbcb40db066f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 2189686670711249408}
 --- !u!1001 &2718357257718358041
 PrefabInstance:
   m_ObjectHideFlags: 0
