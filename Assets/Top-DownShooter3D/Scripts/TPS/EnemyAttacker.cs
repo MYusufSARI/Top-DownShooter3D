@@ -46,11 +46,11 @@ namespace TPS
                 {
                     _currentTarget.ApplyDamage(_damage);
                 }
+            }
 
-                else
-                {
-                    _currentTarget.ApplyDamage(_damage);
-                }
+            else
+            {
+                _currentTarget.ApplyDamage(_damage);
             }
 
             IsCurrentlyAttacking = false;
