@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa7d57973204d4e02aedf8261adba9c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 2
+  _movementSpeed: 4
 --- !u!114 &1426828210810544806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _xp: 1
-  _xpDropChange: 1
+  _xpDropChange: 0.7
   _xpCollectablePrefab: {fileID: 4876533478683272898, guid: c10348297efcd4cc2918c248097f39a8,
     type: 3}
 --- !u!1 &7153901154394008351
