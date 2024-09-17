@@ -16,6 +16,10 @@ namespace TPS
 
         private float _lastAttack;
 
+        [Header("Data")]
+        private IDamageable _currentTarget;
+
+
         public float Range => _range;
         public bool CanAttack => Time.time > _lastAttack + _attackRate;
         public bool IsCurrentlyAttacking { get; private set; }
@@ -30,30 +34,26 @@ namespace TPS
 
             OnAttacked?.Invoke(target);
 
-            StartCoroutine(ApplyAttackDelayed(target));
+            IsCurrentlyAttacking = true;
         }
 
 
-        private IEnumerator ApplyAttackDelayed(IDamageable target)
+        public void ExecuteDamage()
         {
-            IsCurrentlyAttacking = true;
-
-            yield return new WaitForSeconds(0.5f);
-
-            IsCurrentlyAttacking = false;
-
-            if (target is MonoBehaviour mb)
+            if (_currentTarget is MonoBehaviour mb)
             {
                 if (Vector3.Distance(mb.transform.position, transform.position) < _range)
                 {
-                    target.ApplyDamage(_damage);
+                    _currentTarget.ApplyDamage(_damage);
                 }
 
                 else
                 {
-                    target.ApplyDamage(_damage);
+                    _currentTarget.ApplyDamage(_damage);
                 }
             }
+
+            IsCurrentlyAttacking = false;
         }
     }
 }
