@@ -204,6 +204,7 @@ GameObject:
   - component: {fileID: 65680136}
   - component: {fileID: 65680135}
   - component: {fileID: 65680134}
+  - component: {fileID: 65680137}
   m_Layer: 5
   m_Name: BoosterSelectionPopup
   m_TagString: Untagged
@@ -246,6 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86359dda6e913465e8f07a7987b59586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _name: 
   _boosterList: {fileID: 11400000, guid: d741ab451842a452eaf834afb01cc33f, type: 2}
   _boosterCardPreab: {fileID: 7379461787525877496, guid: d81a44cf3bc4b44ada462f6222bfe9ad,
     type: 3}
@@ -290,6 +292,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &65680137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65680132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efae386b87f364bb9ac2cf96b8fe414d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &84828410
 GameObject:
   m_ObjectHideFlags: 0
