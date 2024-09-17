@@ -2,17 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PopupChannelListener : MonoBehaviour
+namespace TPS.UI
 {
-    // Start is called before the first frame update
-    void Start()
+    public class PopupChannelListener : MonoBehaviour
     {
-        
-    }
+        [Header("Data")]
+        private Popup _popup;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+
+        private void Awake()
+        {
+            _popup = GetComponent<Popup>();
+        }
+
+
+        private void OnEnable()
+        {
+            PopupChannel.RegisterPopup(_popup);
+        }
+
+
+        private void OnDisable()
+        {
+            PopupChannel.UnRegisterPopup(_popup);
+        }
     }
 }

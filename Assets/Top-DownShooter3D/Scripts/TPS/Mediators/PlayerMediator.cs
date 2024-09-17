@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine;
 using TPS.Movement;
 using TPS.Input;
+using TPS.UI;
 
 namespace TPS.Mediatiors
 {
@@ -145,11 +146,19 @@ namespace TPS.Mediatiors
 
             if (_xp >= MaxXP)
             {
-                _level++;
-                _xp = 0;
-
-                OnLevelUp?.Invoke(_level);
+                LevelUp();
             }
+        }
+
+
+        private void LevelUp()
+        {
+            _level++;
+            _xp = 0;
+
+            PopupChannel.RequestPopup<BoosterSelectionPopup>();
+
+            OnLevelUp?.Invoke(_level);
         }
 
 
