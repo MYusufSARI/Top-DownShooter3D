@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86359dda6e913465e8f07a7987b59586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: 
+  _name: BoosterSelectionPopup
   _boosterList: {fileID: 11400000, guid: d741ab451842a452eaf834afb01cc33f, type: 2}
   _boosterCardPreab: {fileID: 7379461787525877496, guid: d81a44cf3bc4b44ada462f6222bfe9ad,
     type: 3}

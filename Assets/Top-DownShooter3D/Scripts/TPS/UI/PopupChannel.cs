@@ -87,7 +87,7 @@ namespace TPS.UI
 
         public static void RegisterPopup(Popup popup)
         {
-            if (_popups.Contains(popup))
+            if (!_popups.Contains(popup))
             {
                 _popups.Add(popup);
             }

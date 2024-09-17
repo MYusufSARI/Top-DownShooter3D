@@ -17,15 +17,9 @@ namespace TPS.UI
 
 
 
-        private void Start()
-        {
-            Open();
-        }
-
-
         protected override void OnOpened()
         {
-            base.OnOpened();
+            Time.timeScale = 0;
 
             for (int i = 0; i < 3; i++)
             {
@@ -34,6 +28,12 @@ namespace TPS.UI
                 var inst = Instantiate(_boosterCardPreab, _container);
                 inst.Booster = randomBooster;
             }
+        }
+
+
+        protected override void OnClosed()
+        {
+            Time.timeScale = 1;
         }
     }
 }
