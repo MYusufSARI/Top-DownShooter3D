@@ -134,9 +134,9 @@ MonoBehaviour:
   _xpDropChange: 0.7
   _weaponDropChances:
   - Weapon: {fileID: 11400000, guid: 8f567afa483614a27b406f963926e079, type: 2}
-    Chance: 0.1
-  - Weapon: {fileID: 11400000, guid: 861b6f3d8b59c4ec795a4a47f9eb3756, type: 2}
     Chance: 0.05
+  - Weapon: {fileID: 11400000, guid: 861b6f3d8b59c4ec795a4a47f9eb3756, type: 2}
+    Chance: 0.025
   _xpCollectablePrefab: {fileID: 4876533478683272898, guid: c10348297efcd4cc2918c248097f39a8,
     type: 3}
   _weaponCollectiblePrefab: {fileID: 7527808159638074674, guid: 01cd0dbfc07ee404aab3a8c2d418bf3f,
