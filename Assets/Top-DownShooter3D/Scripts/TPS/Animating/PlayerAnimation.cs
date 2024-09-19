@@ -18,6 +18,7 @@ namespace TPS.Animating
         [Header("Readonly")]
         private static readonly int Horizontal = Animator.StringToHash("Horizontal");
         private static readonly int Vertical = Animator.StringToHash("Vertical");
+        private static readonly int Fire = Animator.StringToHash("Fire");
 
 
 
@@ -30,6 +31,12 @@ namespace TPS.Animating
 
             _animator.SetFloat(Horizontal, transformedVelocity.x);
             _animator.SetFloat(Vertical, transformedVelocity.z);
+        }
+
+
+        public void PlayFireAnimation()
+        {
+            _animator.SetTrigger(Fire);
         }
     }
 }

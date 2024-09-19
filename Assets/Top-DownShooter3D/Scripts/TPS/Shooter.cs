@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.Pool;
 using TPS.WeaponSystem;
 using TPS.Movement;
+using System;
+using Random = UnityEngine.Random;
 
 namespace TPS
 {
@@ -31,6 +33,8 @@ namespace TPS
 
         [Header("Pool")]
         private IObjectPool<GameObject> _projectilePool;
+
+        public event Action OnShot;
 
 
 
@@ -180,6 +184,8 @@ namespace TPS
             _recoilValue += _weapon.Recoil;
 
             _activeWeaponGraphics.OnShot();
+
+            OnShot?.Invoke();
         }
 
 

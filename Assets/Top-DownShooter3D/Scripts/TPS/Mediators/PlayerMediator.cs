@@ -70,6 +70,8 @@ namespace TPS.Mediatiors
             _gameInput.Player.Dodge.performed += OnDodgeRequested;
 
             _xpCollectableAttractor.OnXPCollected += OnAttractorXPCollected;
+
+            _shooter.OnShot += OnShooterShot;
         }
 
 
@@ -79,6 +81,14 @@ namespace TPS.Mediatiors
             _gameInput.Player.Dodge.performed -= OnDodgeRequested;
 
             _xpCollectableAttractor.OnXPCollected -= OnAttractorXPCollected;
+
+            _shooter.OnShot -= OnShooterShot;
+        }
+
+
+        private void OnShooterShot()
+        {
+            _playerAnimation.PlayFireAnimation();
         }
 
 
