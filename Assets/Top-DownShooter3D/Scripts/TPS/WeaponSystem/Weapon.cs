@@ -13,6 +13,7 @@ namespace TPS.WeaponSystem
         [SerializeField] private float _accuracy = 1f;
         [SerializeField] private float _recoil;
         [SerializeField] private float _recoilFade;
+        [SerializeField] private string _boneSocketName;
 
         [Header("Elements")]
         [SerializeField] private GameObject _projectilePrefab;
@@ -29,5 +30,7 @@ namespace TPS.WeaponSystem
         public GameObject ProjectilePrefab => _projectilePrefab;
 
         public WeaponGraphics WeaponGraphics => _weaponGraphics;
+
+        public string BoneSocketName => _boneSocketName;
     }
 }

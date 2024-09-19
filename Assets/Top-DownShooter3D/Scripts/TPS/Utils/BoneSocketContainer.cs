@@ -2,17 +2,46 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoneSocketContainer : MonoBehaviour
+namespace TPS.Utils
 {
-    // Start is called before the first frame update
-    void Start()
+    public class BoneSocketContainer : MonoBehaviour
     {
-        
-    }
+        [Header("Data")]
+        private BoneSocket[] _sockets;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+        private void Awake()
+        {
+            _sockets = GetComponentsInChildren<BoneSocket>();
+        }
+
+
+        public bool TryGetSocket(string socketName, out Transform socket)
+        {
+            var x = GetSocket(socketName);
+
+            if (x)
+            {
+                socket = x;
+                return true;
+            }
+
+            socket = null;
+            return false;
+        }
+
+
+        public Transform GetSocket(string socketName)
+        {
+            foreach (var socket in _sockets)
+            {
+                if(socket.SocketName == socketName)
+                {
+                    return socket.transform;
+                }
+            }
+
+            return null;
+        }
     }
 }

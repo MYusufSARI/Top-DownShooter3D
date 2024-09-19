@@ -6,6 +6,7 @@ using TPS.WeaponSystem;
 using TPS.Movement;
 using System;
 using Random = UnityEngine.Random;
+using TPS.Utils;
 
 namespace TPS
 {
@@ -17,6 +18,7 @@ namespace TPS
 
         [Header("Data")]
         [SerializeField] private Weapon _weapon;
+        [SerializeField] private BoneSocketContainer _boneSocketContainer;
 
         private WeaponGraphics _activeWeaponGraphics;
 
@@ -127,7 +129,7 @@ namespace TPS
         {
             if (!_weapon) return;
 
-            var instance = Instantiate(_weapon.WeaponGraphics, _weaponContainer);
+            var instance = Instantiate(_weapon.WeaponGraphics, _boneSocketContainer.GetSocket(_weapon.BoneSocketName));
             instance.transform.localPosition = Vector3.zero;
 
             _activeWeaponGraphics = instance;

@@ -1134,6 +1134,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 753231363}
   m_CullTransparentMesh: 1
+--- !u!4 &799951674 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6279351986107016704, guid: 250f87bdc3baf45c2b496c9a390b1497,
+    type: 3}
+  m_PrefabInstance: {fileID: 1383553835}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &816803426
 GameObject:
   m_ObjectHideFlags: 0
@@ -1533,6 +1539,51 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &1033584136
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1033584137}
+  - component: {fileID: 1033584138}
+  m_Layer: 0
+  m_Name: RightHandSocket_Pistol
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1033584137
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033584136}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.40832692, y: -0.48092934, z: -0.50182575, w: 0.5917323}
+  m_LocalPosition: {x: 0.00001, y: 0.00128, z: 0.00008}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 799951674}
+  m_LocalEulerAnglesHint: {x: -75, y: -38, z: -51}
+--- !u!114 &1033584138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033584136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b900ae1e6bd54924b5b91f05977a634, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _socketName: RightHandSocket_Pistol
 --- !u!1 &1197142956
 GameObject:
   m_ObjectHideFlags: 0
@@ -1761,7 +1812,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6279351986107016704, guid: 250f87bdc3baf45c2b496c9a390b1497,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1033584137}
+    - targetCorrespondingSourceObject: {fileID: 6279351986107016704, guid: 250f87bdc3baf45c2b496c9a390b1497,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2096274754}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 250f87bdc3baf45c2b496c9a390b1497, type: 3}
 --- !u!4 &1383553836 stripped
@@ -1997,6 +2056,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _matchInstance: {fileID: 11400000, guid: f95eb7437d93449a1a9a56c95273c5eb, type: 2}
   _player: {fileID: 1279869152}
+--- !u!1 &2096274753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2096274754}
+  - component: {fileID: 2096274755}
+  m_Layer: 0
+  m_Name: RightHandSocket_Rifle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2096274754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096274753}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.40832692, y: -0.48092934, z: -0.50182575, w: 0.5917323}
+  m_LocalPosition: {x: -0.00009, y: 0.000823, z: -0.000186}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 799951674}
+  m_LocalEulerAnglesHint: {x: -75, y: -38, z: -51}
+--- !u!114 &2096274755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096274753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b900ae1e6bd54924b5b91f05977a634, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _socketName: RightHandSocket_Rifle
 --- !u!1 &2109902690
 GameObject:
   m_ObjectHideFlags: 0
