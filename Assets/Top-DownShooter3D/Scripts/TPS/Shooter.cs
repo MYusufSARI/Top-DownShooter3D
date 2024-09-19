@@ -129,8 +129,9 @@ namespace TPS
         {
             if (!_weapon) return;
 
-            var instance = Instantiate(_weapon.WeaponGraphics, _boneSocketContainer.GetSocket(_weapon.BoneSocketName));
+            var instance = Instantiate(_weapon.WeaponGraphics, _boneSocketContainer.GetSocket(_weapon.BoneSocketName), true);
             instance.transform.localPosition = Vector3.zero;
+            instance.transform.localRotation = Quaternion.identity;
 
             _activeWeaponGraphics = instance;
         }

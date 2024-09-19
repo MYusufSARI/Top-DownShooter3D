@@ -1,5 +1,95 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1789334777040646980
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1414046418265995584}
+  - component: {fileID: 554029805824414733}
+  m_Layer: 0
+  m_Name: RightHandSocket_Pistol
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1414046418265995584
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789334777040646980}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.40832692, y: -0.48092934, z: -0.50182575, w: 0.5917323}
+  m_LocalPosition: {x: 0.00024, y: 0.00135, z: -0.0001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6279351986107016704}
+  m_LocalEulerAnglesHint: {x: -75, y: -38, z: -51}
+--- !u!114 &554029805824414733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789334777040646980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b900ae1e6bd54924b5b91f05977a634, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _socketName: RightHandSocket_Pistol
+--- !u!1 &2686648604555344699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6565411402544473456}
+  - component: {fileID: 6267219549068759870}
+  m_Layer: 0
+  m_Name: RightHandSocket_Rifle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6565411402544473456
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2686648604555344699}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.40832692, y: -0.48092934, z: -0.50182575, w: 0.5917323}
+  m_LocalPosition: {x: -0.00009, y: 0.000823, z: -0.000186}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6279351986107016704}
+  m_LocalEulerAnglesHint: {x: -75, y: -38, z: -51}
+--- !u!114 &6267219549068759870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2686648604555344699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b900ae1e6bd54924b5b91f05977a634, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _socketName: RightHandSocket_Rifle
 --- !u!1 &3896410404025617255
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,7 +386,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -643136835881410994, guid: 11af95c12269f4062a46c2529c46e2cc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1414046418265995584}
+    - targetCorrespondingSourceObject: {fileID: -643136835881410994, guid: 11af95c12269f4062a46c2529c46e2cc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6565411402544473456}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 11af95c12269f4062a46c2529c46e2cc,
         type: 3}
@@ -327,6 +425,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 091159795839940a193fd908db951a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &6279351986107016704 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -643136835881410994, guid: 11af95c12269f4062a46c2529c46e2cc,
+    type: 3}
+  m_PrefabInstance: {fileID: 2321503525879461966}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &8168745230407566815 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 11af95c12269f4062a46c2529c46e2cc,
