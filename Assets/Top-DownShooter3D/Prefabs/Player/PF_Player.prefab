@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 3743463019067041105}
   - component: {fileID: 6220981739922391182}
   - component: {fileID: 3045418095779273061}
+  - component: {fileID: 5752798444673985640}
   m_Layer: 0
   m_Name: PF_Player
   m_TagString: Untagged
@@ -206,6 +207,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ed58b3de28034762a8d16bf2e3735ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5752798444673985640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5322596824978053775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2779b9c1e00e4abe8109aae56ad9b99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2321503525879461966
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -268,6 +281,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Swat@T-Pose
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 11af95c12269f4062a46c2529c46e2cc,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7107e222e010b45c89f1eb4f5940d935, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 11af95c12269f4062a46c2529c46e2cc,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
