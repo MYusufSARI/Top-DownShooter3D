@@ -7,12 +7,14 @@ using TPS.Movement;
 using TPS.Input;
 using TPS.UI;
 using TPS.BoosterSystem;
+using TPS.Animating;
 
 namespace TPS.Mediatiors
 {
     public class PlayerMediator : MonoBehaviour, IDamageable
     {
         [SerializeField] private Attributes _attributes;
+
         public Attributes Attributes => _attributes;
 
         [Header("Data")]
@@ -22,24 +24,24 @@ namespace TPS.Mediatiors
         private Plane _plane;
         private XPCollectableAttractor _xpCollectableAttractor;
         private BoosterContainer _boosterContainer;
-
-
-
-        [Header("Settings")]
-        [SerializeField] private float _dodgePower;
-        [SerializeField] private float _health;
-        private float _xp;
-        private int _level;
-
-        public int Level => _level;
-
-        public float MaxXP => (_level + 1) * 5;
+        private PlayerAnimation _playerAnimation;
 
         [Header("Elements")]
         private Camera _mainCamera;
 
+        [Header("Settings")]
+        [SerializeField] private float _dodgePower;
+        [SerializeField] private float _health;
+
+        private float _xp;
+        private int _level;
+
+        public int Level => _level;
+        public float MaxXP => (_level + 1) * 5;
+
 
         public event Action<int> OnLevelUp;
+
 
 
         private void Awake()
@@ -51,6 +53,8 @@ namespace TPS.Mediatiors
             _xpCollectableAttractor = GetComponent<XPCollectableAttractor>();
 
             _boosterContainer = GetComponent<BoosterContainer>();
+
+            _playerAnimation = GetComponent<PlayerAnimation>();
 
             _gameInput = new GameInput();
 
@@ -99,6 +103,8 @@ namespace TPS.Mediatiors
             {
                 _shooter.Shoot();
             }
+
+            _playerAnimation.Velocity = _characterMovement.Velocity;
         }
 
 
