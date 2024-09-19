@@ -11,7 +11,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 2521579883505114720}
-    m_Position: {x: 430, y: 80, z: 0}
+    m_Position: {x: 420, y: 120, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -76,7 +76,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AC_Player
+  m_Name: AC_Player_Pistol
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Horizontal
@@ -236,16 +236,16 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: 071c3cc2b3dab9779b460d38e88b69b5,
+    m_Motion: {fileID: -203655887218126122, guid: c3d29d02e249d1495ab9ef7cfafbfa74,
       type: 3}
     m_Threshold: 0
     m_Position: {x: 0, y: -1}
-    m_TimeScale: 1
+    m_TimeScale: -1
     m_CycleOffset: 0
     m_DirectBlendParameter: Horizontal
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: 6ecbc21b02a81c2d2bd21e5aefc806e7,
+    m_Motion: {fileID: -203655887218126122, guid: 31899c524cdee1345a58d9fb81d29b94,
       type: 3}
     m_Threshold: 0.125
     m_Position: {x: 0, y: 0}
@@ -254,7 +254,7 @@ BlendTree:
     m_DirectBlendParameter: Horizontal
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: 854cf7aadbbc13474b2f718d4729a62a,
+    m_Motion: {fileID: -203655887218126122, guid: c3d29d02e249d1495ab9ef7cfafbfa74,
       type: 3}
     m_Threshold: 0.25
     m_Position: {x: 0, y: 1}
@@ -263,7 +263,7 @@ BlendTree:
     m_DirectBlendParameter: Horizontal
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: 76b3e6b1dcf38a415a8092df8e58669c,
+    m_Motion: {fileID: -203655887218126122, guid: baac6feafb78236dfad0225e3a48a4fd,
       type: 3}
     m_Threshold: 0.375
     m_Position: {x: -1, y: 0}
@@ -272,7 +272,7 @@ BlendTree:
     m_DirectBlendParameter: Horizontal
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: 0aa29b3ad4f3ab6ff9f61634e1be5deb,
+    m_Motion: {fileID: -203655887218126122, guid: 37ea1f7cd46ccb580aae0007fd714ebf,
       type: 3}
     m_Threshold: 0.5
     m_Position: {x: 1, y: 0}

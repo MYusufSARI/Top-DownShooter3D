@@ -29,6 +29,8 @@ namespace TPS
 
         public bool CanShoot => Time.time > _lastShootTime + (_weapon.FireRate / AttackSpeedMultiplier);
 
+        public Weapon Weapon => _weapon;
+
         public float AttackSpeedMultiplier { get; set; } = 1;
 
         public float BaseDamage { get;  set; }
@@ -37,6 +39,7 @@ namespace TPS
         private IObjectPool<GameObject> _projectilePool;
 
         public event Action OnShot;
+        public event Action<Weapon> OnWeaponChanged;
 
 
 
@@ -122,6 +125,8 @@ namespace TPS
             {
                 CreateGraphics();
             }
+
+            OnWeaponChanged?.Invoke(_weapon);
         }
 
 

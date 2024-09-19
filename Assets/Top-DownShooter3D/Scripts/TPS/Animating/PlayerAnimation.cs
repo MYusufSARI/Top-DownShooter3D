@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,6 +38,11 @@ namespace TPS.Animating
         public void PlayFireAnimation()
         {
             _animator.SetTrigger(Fire);
+        }
+
+        public void SetAnimationController(RuntimeAnimatorController animationController)
+        {
+            _animator.runtimeAnimatorController = animationController;
         }
     }
 }

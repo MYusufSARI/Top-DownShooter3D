@@ -21,3 +21,4 @@ MonoBehaviour:
   _projectilePrefab: {fileID: 0}
   _weaponGraphics: {fileID: 2597934400762491577, guid: 23b0a17bdf8e843d2a902de591d8bae0,
     type: 3}
+  _controller: {fileID: 9100000, guid: a3b72d509beb94cb09b02998512d7211, type: 2}

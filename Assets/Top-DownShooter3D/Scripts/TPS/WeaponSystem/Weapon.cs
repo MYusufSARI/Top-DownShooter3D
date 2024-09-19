@@ -20,6 +20,7 @@ namespace TPS.WeaponSystem
 
         [Header("Data")]
         [SerializeField] private WeaponGraphics _weaponGraphics;
+        [SerializeField] private RuntimeAnimatorController _controller;
 
         public float FireRate => _fireRate;
         public float Accuracy => _accuracy;
@@ -32,5 +33,7 @@ namespace TPS.WeaponSystem
         public WeaponGraphics WeaponGraphics => _weaponGraphics;
 
         public string BoneSocketName => _boneSocketName;
+
+        public RuntimeAnimatorController Controller => _controller;
     }
 }

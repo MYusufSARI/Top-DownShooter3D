@@ -8,6 +8,7 @@ using TPS.Input;
 using TPS.UI;
 using TPS.BoosterSystem;
 using TPS.Animating;
+using TPS.WeaponSystem;
 
 namespace TPS.Mediatiors
 {
@@ -72,6 +73,7 @@ namespace TPS.Mediatiors
             _xpCollectableAttractor.OnXPCollected += OnAttractorXPCollected;
 
             _shooter.OnShot += OnShooterShot;
+            _shooter.OnWeaponChanged += OnShooterWeaponChanged;
         }
 
 
@@ -83,6 +85,19 @@ namespace TPS.Mediatiors
             _xpCollectableAttractor.OnXPCollected -= OnAttractorXPCollected;
 
             _shooter.OnShot -= OnShooterShot;
+            _shooter.OnWeaponChanged -= OnShooterWeaponChanged;
+        }
+
+
+        private void Start()
+        {
+            _playerAnimation.SetAnimationController(_shooter.Weapon.Controller);
+        }
+
+
+        private void OnShooterWeaponChanged(Weapon weapon)
+        {
+            _playerAnimation.SetAnimationController(weapon.Controller);
         }
 
 
