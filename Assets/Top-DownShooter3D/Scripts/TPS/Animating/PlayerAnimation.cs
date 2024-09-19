@@ -19,8 +19,11 @@ namespace TPS.Animating
 
         private void Update()
         {
-            _animator.SetFloat(Horizontal, Velocity.x);
-            _animator.SetFloat(Vertical, Velocity.z);
+            var transformVelocity =  Quaternion.Euler(0, transform.eulerAngles.y, 0) * Velocity;
+
+
+            _animator.SetFloat(Horizontal, transformVelocity.x);
+            _animator.SetFloat(Vertical, transformVelocity.z);
         }
     }
 }
