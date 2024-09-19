@@ -25,7 +25,8 @@ namespace TPS.Animating
         {
             var transformedVelocity = Quaternion.Euler(0, transform.eulerAngles.y, 0) * Velocity;
 
-            _appliedVelocity = Vector3.SmoothDamp(_appliedVelocity, transformedVelocity, ref _currentTransitionVelocity, 4 * Time.deltaTime);
+            _appliedVelocity = Vector3.SmoothDamp(_appliedVelocity, transformedVelocity, ref _currentTransitionVelocity,
+                (transformedVelocity.magnitude < 0.01f ? 2 : 8) * Time.deltaTime);
 
             _animator.SetFloat(Horizontal, transformedVelocity.x);
             _animator.SetFloat(Vertical, transformedVelocity.z);
