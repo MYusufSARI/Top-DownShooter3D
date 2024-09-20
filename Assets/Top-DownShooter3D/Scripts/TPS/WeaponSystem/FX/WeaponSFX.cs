@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TPS.Audio;
 using UnityEngine;
 
 namespace TPS.WeaponSystem.FX
@@ -8,12 +9,12 @@ namespace TPS.WeaponSystem.FX
     {
         [Header("Elements")]
         [SerializeField] private AudioSource _audioSource;
-        [SerializeField] private AudioClip _audioClip;
+        [SerializeField] private SoundCue _soundCue;
 
 
         protected override void OnShot()
         {
-            _audioSource.PlayOneShot(_audioClip);
+            _soundCue.PlayOneShot(_audioSource);
         }
     }
 }
