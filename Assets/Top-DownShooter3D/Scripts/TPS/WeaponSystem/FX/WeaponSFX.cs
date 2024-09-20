@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponSFX : MonoBehaviour
+namespace TPS.WeaponSystem.FX
 {
-    // Start is called before the first frame update
-    void Start()
+    public class WeaponSFX : WeaponFX
     {
-        
-    }
+        [Header("Elements")]
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip _audioClip;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+        protected override void OnShot()
+        {
+            _audioSource.PlayOneShot(_audioClip);
+        }
     }
 }
