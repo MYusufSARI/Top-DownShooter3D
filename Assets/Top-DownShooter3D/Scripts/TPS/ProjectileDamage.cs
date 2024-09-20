@@ -13,7 +13,7 @@ namespace TPS
 
         [Header("Settings")]
         [SerializeField] private float _damage = 1;
-        
+
         public float Damage
         {
             get => _damage;
