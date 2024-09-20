@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a8da85fd26740f29fddb1554bd7354, type: 3}
   m_Name: AttackSoundCue
   m_EditorClassIdentifier: 
+  _audioClips:
+  - {fileID: 8300000, guid: 0eaf7e350d9560e38baf7bf56be1a345, type: 3}
