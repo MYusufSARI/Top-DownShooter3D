@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TPS.AI;
 using TPS.Animating;
+using TPS.Audio;
 using UnityEngine;
 
 namespace TPS.Mediatiors
@@ -17,6 +18,7 @@ namespace TPS.Mediatiors
         private EnemyAttacker _enemyAttacker;
         private EnemyAnimation _enemyAnimation;
         private AIController _aiController;
+        private EnemySFX _enemySFX;
 
 
 
@@ -26,6 +28,7 @@ namespace TPS.Mediatiors
             _enemyAttacker = GetComponent<EnemyAttacker>();
             _enemyAnimation = GetComponent<EnemyAnimation>();
             _aiController = GetComponent<AIController>();
+            _enemySFX = GetComponent<EnemySFX>();
         }
 
 
@@ -44,12 +47,16 @@ namespace TPS.Mediatiors
         private void EnemyAttacker_Attacked(IDamageable obj)
         {
             _enemyAnimation.PlayAttackAnimation();
+
+            _enemySFX.PlayAttackSFX();
         }
 
 
         public void ApplyDamage(float damage, GameObject causer = null)
         {
             _health -= damage;
+
+            _enemySFX.PlayDamagedSFX();
 
             if (_health <= 0)
             {
