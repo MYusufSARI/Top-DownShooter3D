@@ -4964,6 +4964,7 @@ GameObject:
   - component: {fileID: 8210735183350530580}
   - component: {fileID: 784587349865367996}
   - component: {fileID: 6594520779092515125}
+  - component: {fileID: 3858846820159845282}
   m_Layer: 0
   m_Name: PF_AssaultRiffle
   m_TagString: Untagged
@@ -5113,6 +5114,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3858846820159845282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9047885701022123649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e333b168b02472991e6731daff22c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSource: {fileID: 6594520779092515125}
+  _audioClip: {fileID: 8300000, guid: 47e2f432ada95c436883372b156a7e8c, type: 3}
 --- !u!1 &9087846195875869369
 GameObject:
   m_ObjectHideFlags: 0
