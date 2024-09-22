@@ -14,7 +14,7 @@ namespace TPS.AI.Behaviours
         [SerializeField] private float _acceptanceRadius;
 
         [Header("Data")]
-        [SerializeField] private MatchInstance? _matchInstance;
+        [SerializeField] private MatchInstance _matchInstance;
 
 
 

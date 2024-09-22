@@ -10,6 +10,9 @@ namespace TPS.Audio
         [Header("Elements")]
         [SerializeField] private AudioClip[] _audioClips;
 
+        [Header("Settings")]
+        [SerializeField] private float _volume = 1;
+
 
 
         public AudioClip Get()
@@ -20,7 +23,7 @@ namespace TPS.Audio
 
         public void PlayOneShot(AudioSource source)
         {
-            source.PlayOneShot(Get());
+            source.PlayOneShot(Get(), _volume);
         }
     }
 }

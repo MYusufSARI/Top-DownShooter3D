@@ -52,7 +52,7 @@ namespace TPS
 
             foreach (var hit in hits)
             {
-                if (hit.transform != raycastHit.transform) continue;
+                if (hit.transform == raycastHit.transform) continue;
 
                 if (hit.transform.TryGetComponent<IDamageable>(out var _))
                 {
