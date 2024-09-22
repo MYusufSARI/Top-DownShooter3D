@@ -982,6 +982,7 @@ GameObject:
   - component: {fileID: 645545294}
   - component: {fileID: 645545296}
   - component: {fileID: 645545295}
+  - component: {fileID: 645545297}
   m_Layer: 5
   m_Name: TimeText
   m_TagString: Untagged
@@ -1106,6 +1107,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 645545293}
   m_CullTransparentMesh: 1
+--- !u!114 &645545297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645545293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb33a4e6e5164253b7d7e34a5b90513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _matchInstance: {fileID: 11400000, guid: f95eb7437d93449a1a9a56c95273c5eb, type: 2}
+  _text: {fileID: 645545295}
 --- !u!1 &687868805
 GameObject:
   m_ObjectHideFlags: 0
