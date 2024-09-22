@@ -7,8 +7,6 @@ namespace TPS
 {
     public class EnemyAttacker : MonoBehaviour, IDamageExecutor
     {
-        public event Action<IDamageable> OnAttacked;
-
         [Header("Settings")]
         [SerializeField] private float _damage;
         [SerializeField] private float _attackRate;
@@ -23,6 +21,8 @@ namespace TPS
         public float Range => _range;
         public bool CanAttack => Time.time > _lastAttack + _attackRate;
         public bool IsCurrentlyAttacking { get; private set; }
+
+        public event Action<IDamageable> OnAttacked;
 
 
 
