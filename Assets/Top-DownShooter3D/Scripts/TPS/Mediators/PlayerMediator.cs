@@ -32,9 +32,10 @@ namespace TPS.Mediatiors
 
         [Header("Settings")]
         [SerializeField] private float _dodgePower;
-        [SerializeField] private float _maxHealth;
 
         private float _health;
+        public float Health => _health;
+
         private float _xp;
         private int _level;
 
@@ -92,7 +93,7 @@ namespace TPS.Mediatiors
 
         private void Start()
         {
-            _health = _maxHealth;
+            _health = Attributes.MaxHealth;
 
             _playerAnimation.SetAnimationController(_shooter.Weapon.Controller);
         }

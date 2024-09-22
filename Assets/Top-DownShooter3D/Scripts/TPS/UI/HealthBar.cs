@@ -1,18 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using TPS.Mediatiors;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class HealthBar : MonoBehaviour
+namespace TPS.UI
 {
-    // Start is called before the first frame update
-    void Start()
+    public class HealthBar : MonoBehaviour
     {
-        
-    }
+        [Header("Data")]
+        [SerializeField] private PlayerMediator _playerMediator;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        [Header("Elements")]
+        [SerializeField] private Image _fillImage;
+
+
+
+        private void Update()
+        {
+            var health = _playerMediator.Health / _playerMediator.Attributes.MaxHealth;
+
+            _fillImage.fillAmount = health;
+        }
     }
 }
