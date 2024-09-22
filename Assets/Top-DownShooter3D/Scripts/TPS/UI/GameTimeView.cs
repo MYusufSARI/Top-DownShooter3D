@@ -22,7 +22,7 @@ namespace TPS.UI
         {
             var timeSpan = TimeSpan.FromSeconds(_matchInstance.Time);
 
-            _text.text = string.Format("{0:02}:{1:02}", timeSpan.Minutes, timeSpan.Seconds); 
+            _text.text = string.Format("{0:00}:{1:00}", timeSpan.Minutes, timeSpan.Seconds); 
         }
     }
 }
