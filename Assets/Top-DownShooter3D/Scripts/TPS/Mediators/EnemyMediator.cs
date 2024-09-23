@@ -1,26 +1,26 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using TPS.AI;
 using TPS.Animating;
 using TPS.Audio;
+using TPS;
 using UnityEngine;
 
-namespace TPS.Mediatiors
+namespace TPS.Mediators
 {
     public class EnemyMediator : MonoBehaviour, IDamageable
     {
-        [SerializeField]
-        private float _health;
+        [Header("Settings")]
+        [SerializeField] private float _health;
 
+        [Header("Data")]
         private ItemDropper _itemDropper;
-
         private EnemyAttacker _attacker;
         private EnemyAnimation _enemyAnimation;
-
         private AIController _aiController;
-
         private EnemySFX _sfx;
+
+
 
         private void Awake()
         {
@@ -66,11 +66,9 @@ namespace TPS.Mediatiors
             }
         }
 
-
         private IEnumerator DisableDelayed()
         {
             yield return new WaitForSeconds(2);
-
             gameObject.SetActive(false);
         }
     }

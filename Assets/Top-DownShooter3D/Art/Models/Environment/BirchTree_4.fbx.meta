@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: BirchTree_Bark
-    second: {fileID: 2100000, guid: 9fc75f13b02e9478eab6704a47e97f09, type: 2}
+    second: {fileID: 2100000, guid: 2a7ca51a7b1c154a4a74f75041eab188, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: BirchTree_Leaves
-    second: {fileID: 2100000, guid: 612d51154e8914ebebffa4984e75349d, type: 2}
+    second: {fileID: 2100000, guid: 3f179ec463c2c2787b778f4b85876ab6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

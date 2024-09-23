@@ -4,8 +4,7 @@ using UnityEngine;
 
 namespace TPS.AI
 {
-    public abstract class AIState
-    {
-
-    }
+	public abstract class AIState
+	{
+	}
 }

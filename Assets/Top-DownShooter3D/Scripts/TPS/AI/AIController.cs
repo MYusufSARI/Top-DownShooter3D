@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TPS.AI.States;
 using UnityEngine;
 
@@ -7,10 +5,7 @@ namespace TPS.AI
 {
     public class AIController : MonoBehaviour
     {
-        [Header("Data")]
         [SerializeField] private AIBehaviour _aiBehaviour;
-
-        private AIState _aiState;
 
         public AIBehaviour AIBehaviour
         {
@@ -30,6 +25,8 @@ namespace TPS.AI
                 }
             }
         }
+
+        private AIState _aiState;
 
 
 

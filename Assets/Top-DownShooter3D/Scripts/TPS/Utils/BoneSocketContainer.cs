@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using TPS.Utils;
 using UnityEngine;
 
 namespace TPS.Utils
@@ -8,6 +7,7 @@ namespace TPS.Utils
     {
         [Header("Data")]
         private BoneSocket[] _sockets;
+
 
 
         private void Awake()
@@ -27,6 +27,7 @@ namespace TPS.Utils
             }
 
             socket = null;
+
             return false;
         }
 
@@ -35,7 +36,7 @@ namespace TPS.Utils
         {
             foreach (var socket in _sockets)
             {
-                if(socket.SocketName == socketName)
+                if (socket.SocketName == socketName)
                 {
                     return socket.transform;
                 }

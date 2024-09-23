@@ -1,12 +1,11 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 namespace TPS.Utils
 {
-    public class SmoothFollower : MonoBehaviour
-    {
+	public class SmoothFollower: MonoBehaviour
+	{
         public Transform Target { get; set; }
 
         [Header("Settings")]
@@ -22,26 +21,25 @@ namespace TPS.Utils
 
 
         private void Update()
-        {
-            if (Target)
-            {
-                transform.position = Vector3.SmoothDamp(transform.position, Target.position, ref _smoothMovementVelocity , FOLLOW_SPEED * Time.deltaTime);
+		{
+			if (Target)
+			{
+				transform.position = Vector3.SmoothDamp(transform.position, Target.position, ref _smoothMovementVelocity,FOLLOW_SPEED * Time.deltaTime);
 
-                if (Vector3.Distance(Target.position, transform.position) < ACCEPTANCE_RADIUS)
-                {
-                    if (!_reachedDestination)
-                    {
-                        OnReachedDestination?.Invoke();
+				if (Vector3.Distance(Target.position, transform.position) < ACCEPTANCE_RADIUS)
+				{
+					if (!_reachedDestination)
+					{
+						OnReachedDestination?.Invoke();
+						_reachedDestination = true;
+					}
+				}
 
-                        _reachedDestination = true;
-                    }
-                }
-
-                else
-                {
-                    _reachedDestination = false;
-                }
-            }
-        }
-    }
+				else
+				{
+					_reachedDestination = false;
+				}
+			}
+		}
+	}
 }

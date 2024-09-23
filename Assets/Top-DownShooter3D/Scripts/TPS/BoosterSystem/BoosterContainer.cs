@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +11,6 @@ namespace TPS.BoosterSystem
         [Header("Elements")]
         private List<Booster> _boosters = new List<Booster>();
 
-        
 
 
         public void AddBooster(Booster booster)

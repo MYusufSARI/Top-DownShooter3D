@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 namespace TPS.UI
@@ -25,7 +24,7 @@ namespace TPS.UI
 
         private void OnDisable()
         {
-            PopupChannel.UnRegisterPopup(_popup);
+            PopupChannel.UnregisterPopup(_popup);
         }
     }
 }

@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using TPS.Mediatiors;
+using System;
+using TPS.Mediators;
 using UnityEngine;
 
 namespace TPS.BoosterSystem.Boosters
@@ -12,9 +11,10 @@ namespace TPS.BoosterSystem.Boosters
         [SerializeField] private float _value;
 
 
+
         public override void OnAdded(BoosterContainer container)
         {
-            if(container.TryGetComponent<PlayerMediator>(out var mediator))
+            if (container.TryGetComponent<PlayerMediator>(out var mediator))
             {
                 mediator.Attributes.Damage += _value;
             }

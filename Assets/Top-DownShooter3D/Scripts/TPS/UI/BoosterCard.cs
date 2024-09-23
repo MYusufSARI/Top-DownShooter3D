@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using TPS.BoosterSystem;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -30,14 +28,11 @@ namespace TPS.UI
             }
         }
 
-
         private void UpdateUI()
         {
             _title.text = _booster.BoosterName;
-
             _description.text = _booster.Description;
         }
-
 
         public void OnPointerClick(PointerEventData eventData)
         {

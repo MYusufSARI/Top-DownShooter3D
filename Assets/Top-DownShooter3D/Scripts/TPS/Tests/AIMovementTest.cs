@@ -1,28 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using TPS.MatchSystem;
-using TPS.Movement;
 using UnityEngine;
 
-namespace TPS.Tests
+namespace TPS.Movement.Tests
 {
     public class AIMovementTest : MonoBehaviour
     {
-        [Header("Data")]
-        [SerializeField] private MatchInstance _matchInstance;
-
+        [SerializeField]
+        private float _acceptanceRadius;
         private CharacterMovement _characterMovement;
 
-        [Header("Settings")]
-        [SerializeField] private float _acceptanceRadius;
-
-
+        [SerializeField]
+        private MatchInstance _matchInstance;
 
         private void Awake()
         {
             _characterMovement = GetComponent<CharacterMovement>();
         }
-
 
         private void Update()
         {
@@ -31,9 +24,9 @@ namespace TPS.Tests
             if (distance > _acceptanceRadius)
             {
                 var direction = (_matchInstance.Player.transform.position - transform.position).normalized;
-
                 _characterMovement.MovementInput = new Vector2(direction.x, direction.z);
             }
         }
+
     }
 }

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3d69228c96e149f88fe1ba2029eb2fc, type: 3}
+  m_Script: {fileID: 11500000, guid: 23f2ad399942c050ba9c55c02a49b2dc, type: 3}
   m_Name: Revolver
   m_EditorClassIdentifier: 
   _baseDamage: 1
@@ -17,8 +17,9 @@ MonoBehaviour:
   _accuracy: 0.7
   _recoil: 0.05
   _recoilFade: 0.1
-  _boneSocketName: RightHandSocket_Pistol
   _projectilePrefab: {fileID: 0}
-  _weaponGraphics: {fileID: 3685844632984842829, guid: 29896a61391c146a8ade5070ace3a644,
+  _weaponGraphics: {fileID: 3830672594179798548, guid: 78b1bf8b737cf0573819ce6adf9d305e,
     type: 3}
-  _controller: {fileID: 9100000, guid: a3b72d509beb94cb09b02998512d7211, type: 2}
+  _boneSocketName: RightHandSocket_Pistol
+  _controller: {fileID: 9100000, guid: 202c85de9bba68e45bf996d3cb86000d, type: 2}
+  _icon: {fileID: 21300000, guid: f8c6243c062baebc68ae33095278d05b, type: 3}

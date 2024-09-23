@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 namespace TPS.WeaponSystem
@@ -35,5 +34,9 @@ namespace TPS.WeaponSystem
         public string BoneSocketName => _boneSocketName;
 
         public RuntimeAnimatorController Controller => _controller;
+
+        [SerializeField]
+        private Sprite _icon;
+        public Sprite Icon => _icon;
     }
 }

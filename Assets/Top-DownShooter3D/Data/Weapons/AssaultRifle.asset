@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23f2ad399942c050ba9c55c02a49b2dc, type: 3}
+  m_Name: AssaultRifle
+  m_EditorClassIdentifier: 
+  _baseDamage: 0.5
+  _fireRate: 0.08
+  _accuracy: 0.9
+  _recoil: 0.1
+  _recoilFade: 0.5
+  _projectilePrefab: {fileID: 0}
+  _weaponGraphics: {fileID: 8781915695761903233, guid: a322db678af68c826987cc2463c3cf16,
+    type: 3}
+  _boneSocketName: RightHandSocket_Rifle
+  _controller: {fileID: 9100000, guid: 46ff243461144113cb603a3752e95630, type: 2}
+  _icon: {fileID: 21300000, guid: 0d7e214df7639078f8a1fee2e3ed33c9, type: 3}

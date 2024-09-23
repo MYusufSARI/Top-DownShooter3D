@@ -1,6 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using TPS.WeaponSystem;
 using UnityEngine;
 
 namespace TPS.WeaponSystem.FX
@@ -22,6 +21,7 @@ namespace TPS.WeaponSystem.FX
         {
             _weaponGraphics.Shot += OnShot;
         }
+
 
         private void OnDisable()
         {

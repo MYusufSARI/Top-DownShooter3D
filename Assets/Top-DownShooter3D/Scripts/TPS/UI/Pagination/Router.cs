@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,32 +30,33 @@ namespace TPS.UI.Pagination
             }
         }
 
-
         private void Start()
         {
             foreach (var page in _pages)
             {
                 page.Close();
             }
-
             if (_pages.Count > 0)
             {
                 ActivePage = _pages[0];
             }
-
         }
-
 
         public void SetPage<T>() where T : Page
         {
             foreach (var page in _pages)
             {
-                if (page is T caster)
+                if (page is T)
                 {
                     ActivePage = page;
                     return;
                 }
             }
+        }
+
+        public void SetPage(int index)
+        {
+            ActivePage = _pages[index];
         }
     }
 }

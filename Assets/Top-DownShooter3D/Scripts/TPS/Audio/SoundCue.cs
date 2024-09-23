@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace TPS.Audio
 {
-    [CreateAssetMenu(menuName ="Audio/Sound Cue")]
+    [CreateAssetMenu(menuName = "Audio/Sound Cue")]
     public class SoundCue : ScriptableObject
     {
         [Header("Elements")]

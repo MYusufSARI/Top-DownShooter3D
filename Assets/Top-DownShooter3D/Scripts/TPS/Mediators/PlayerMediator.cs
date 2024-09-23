@@ -10,7 +10,7 @@ using TPS.BoosterSystem;
 using TPS.Animating;
 using TPS.WeaponSystem;
 
-namespace TPS.Mediatiors
+namespace TPS.Mediators
 {
     public class PlayerMediator : MonoBehaviour, IDamageable
     {

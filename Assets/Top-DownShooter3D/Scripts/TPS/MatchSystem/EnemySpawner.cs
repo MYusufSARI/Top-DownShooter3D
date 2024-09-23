@@ -1,14 +1,14 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Pool;
 using Random = UnityEngine.Random;
+
 
 namespace TPS.MatchSystem
 {
-    public class EnemySpawner : MonoBehaviour
-    {
+	public class EnemySpawner : MonoBehaviour
+	{
+
         [Header("Elements")]
         private Camera _mainCamera;
         private Plane _plane;
@@ -26,115 +26,111 @@ namespace TPS.MatchSystem
         [SerializeField] private EnemySpawnData _enemySpawnData;
 
 
-
         private void Awake()
-        {
-            _mainCamera = Camera.main;
+		{
+			_mainCamera = Camera.main;
 
             _plane = new Plane(Vector3.up, Vector3.zero);
 
             CreatePoolObjects();
-        }
+		}
 
 
-        public void CreatePoolObjects()
-        {
-            int totalSpawnCount = 0;
+		private void CreatePoolObjects()
+		{
+			int totalSpawnCount = 0;
 
-            foreach (var entry in _enemySpawnData.Entries)
-            {
-                totalSpawnCount += entry.SpawnCount;
-            }
+			foreach (var entry in _enemySpawnData.Entries)
+			{
+				totalSpawnCount += entry.SpawnCount;
+			}
 
-            _pooledObjects = new GameObject[totalSpawnCount];
+			_pooledObjects = new GameObject[totalSpawnCount];
 
-            int currentSpawnIndex = 0;
+			int currentSpawnedIndex = 0;
 
-            foreach (var entry in _enemySpawnData.Entries)
-            {
-                for (int i = 0; i < entry.SpawnCount; i++)
-                {
-                    var objectToSpawn = entry.Prefabs[Random.Range(0, entry.Prefabs.Length)];
+			foreach (var entry in _enemySpawnData.Entries)
+			{
+				for (int i = 0; i < entry.SpawnCount; i++)
+				{
+					var objToSpawn = entry.Prefabs[Random.Range(0, entry.Prefabs.Length)];
+					var inst = Instantiate(objToSpawn, Vector3.zero, Quaternion.identity);
 
-                    GameObject inst = Instantiate(objectToSpawn, Vector3.zero, Quaternion.identity);
-                    inst.SetActive(false);
+					inst.SetActive(false);
 
-                    _pooledObjects[currentSpawnIndex] = inst;
-
-                    currentSpawnIndex++;
-                }
-            }
-        }
-
-
-        private void Start()
-        {
-            StartCoroutine(CreateEnemy());
-        }
+					_pooledObjects[currentSpawnedIndex] = inst;
+						
+					currentSpawnedIndex++;
+				}
+			}
+		}
 
 
-        private Vector3 GetSpawnOffsetViewportPosition(Vector3 vector, float sign)
-        {
-            return vector * sign * _offset;
-        }
+		private void Start()
+		{
+			StartCoroutine(CreateEnemy());
+		}
 
 
-        private IEnumerator CreateEnemy()
-        {
-            while (true)
-            {
-                yield return new WaitForSeconds(_spawnRate);
-
-                if (!_enemySpawnData.TryGetEntryByTime(_matchInstance.Time, out SpawnEntry entry)) continue;
+		private Vector3 GetSpawnOffsetByViewportPosition(Vector3 vector, float sign)
+		{
+			return vector * sign * _offset;
+		}
 
 
-                var spawnPerCall = ((float)entry.SpawnCount / entry.Duration) * _spawnRate;
+		private IEnumerator CreateEnemy()
+		{
+			while (true)
+			{
+				yield return new WaitForSeconds(_spawnRate);
 
-                for (int i = 0; i < spawnPerCall; i++)
-                {
-                    var viewportPoint = GetViewportPoint(out var offset);
+				if (!_enemySpawnData.TryGetEntryByTime(_matchInstance.Time, out SpawnEntry entry)) continue;
 
-                    var ray = _mainCamera.ViewportPointToRay(viewportPoint);
+				var spawnPerCall = ((float)entry.SpawnCount / entry.Duration) * _spawnRate;
 
-                    if (_plane.Raycast(ray, out float enter))
-                    {
-                        var worldPos = ray.GetPoint(enter) + offset;
-                        var inst = _pooledObjects[_currentSpawnedObjectIndex];
+				for (int i = 0; i < spawnPerCall; i++)
+				{
+					var viewportPoint = GetViewportPoint(out var offset);
 
-                        inst.transform.position = worldPos;
-                        inst.SetActive(true);
+					var ray = _mainCamera.ViewportPointToRay(viewportPoint);
 
-                        _currentSpawnedObjectIndex++;
-                    }
-                }
+					if (_plane.Raycast(ray, out float enter))
+					{
+						var worldPosition = ray.GetPoint(enter) + offset;
+						var inst = _pooledObjects[_currentSpawnedObjectIndex];
+						
+						inst.transform.position = worldPosition;
+						
+						inst.SetActive(true);
+						
+						_currentSpawnedObjectIndex++;
+					}
+				}
+			}
+		}
 
-            }
-        }
+		private Vector3 GetViewportPoint(out Vector3 offset)
+		{
+			var viewportPoint = Vector3.zero;
 
+			offset = Vector3.zero;
 
-        private Vector3 GetViewportPoint(out Vector3 offset)
-        {
-            var viewportPoint = Vector3.zero;
+			if (Random.value > 0.5f)
+			{
+				var dir = Mathf.Round(Random.value);
+				viewportPoint = new Vector3(dir, Random.value);
 
-            offset = Vector3.zero;
+				offset = GetSpawnOffsetByViewportPosition(Vector3.right, dir < 0.001f ? -1f : 1f);
+			}
+			else
+			{
+				var dir = Mathf.Round(Random.value);
+				viewportPoint = new Vector3(Random.value, dir);
 
-            if (Random.value > 0.5f)
-            {
-                var dir = Mathf.Round(Random.value);
-                viewportPoint = new Vector3(dir, Random.value);
+				offset = GetSpawnOffsetByViewportPosition(Vector3.forward, dir < 0.001f ? -1f : 1f);
+			}
 
-                offset = GetSpawnOffsetViewportPosition(Vector3.right, dir < 0.001f ? -1f : 1f);
-            }
-
-            else
-            {
-                var dir = Mathf.Round(Random.value);
-                viewportPoint = new Vector3(Random.value, dir);
-
-                offset = GetSpawnOffsetViewportPosition(Vector3.forward, dir < 0.001f ? -1f : 1f);
-            }
-
-            return viewportPoint;
-        }
-    }
+			return viewportPoint;
+		}
+	}
 }

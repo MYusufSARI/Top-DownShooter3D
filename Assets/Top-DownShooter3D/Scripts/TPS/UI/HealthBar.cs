@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using TPS.Mediatiors;
+using TPS.Mediators;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace TPS.UI
 {
-    public class HealthBar : MonoBehaviour
+    public class Healthbar : MonoBehaviour
     {
         [Header("Data")]
         [SerializeField] private PlayerMediator _playerMediator;
@@ -19,7 +17,6 @@ namespace TPS.UI
         private void Update()
         {
             var health = _playerMediator.Health / _playerMediator.Attributes.MaxHealth;
-
             _fillImage.fillAmount = health;
         }
     }

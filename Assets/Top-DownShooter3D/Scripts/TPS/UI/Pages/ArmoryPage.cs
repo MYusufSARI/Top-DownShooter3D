@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TPS.UI.Pagination;
 using UnityEngine;
 
@@ -7,12 +5,17 @@ namespace TPS.UI.Pages
 {
     public class ArmoryPage : Page
     {
-        protected override void OnClosed()
-        {
-            
-        }
+        [Header("Elements")]
+        [SerializeField] private Animator _animator;
+
 
         protected override void OnOpened()
+        {
+            _animator.Play("Armory");
+        }
+
+
+        protected override void OnClosed()
         {
 
         }

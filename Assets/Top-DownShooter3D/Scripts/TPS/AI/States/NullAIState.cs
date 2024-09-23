@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace TPS.AI.States
 {
-    public class NullAIState : AIState
-    {
-
-    }
+	public class NullAIState : AIState
+	{
+	
+	}
 }

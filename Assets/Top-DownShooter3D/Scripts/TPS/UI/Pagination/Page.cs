@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,15 +19,18 @@ namespace TPS.UI.Pagination
         private void Awake()
         {
             _canvas = GetComponent<Canvas>();
-            _raycaster = GetComponent<GraphicRaycaster>();
+            _raycaster = GetComponent <GraphicRaycaster>();
+            OnAwake();
         }
+
+
+        protected virtual void OnAwake(){}
 
 
         public void Open()
         {
             _canvas.enabled = true;
             _raycaster.enabled = true;
-
             OnOpened();
         }
 
@@ -35,13 +39,11 @@ namespace TPS.UI.Pagination
         {
             _canvas.enabled = false;
             _raycaster.enabled = false;
-
             OnClosed();
         }
 
+
         protected abstract void OnOpened();
-
         protected abstract void OnClosed();
-
     }
 }

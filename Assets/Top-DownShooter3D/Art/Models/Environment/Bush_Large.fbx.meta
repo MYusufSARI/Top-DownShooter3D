@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Bush_Leaves
-    second: {fileID: 2100000, guid: a6b9e71c297b64ed59872862b53cd1e3, type: 2}
+    second: {fileID: 2100000, guid: 3c35b1f42ccbdb498a9b32cb622b0ebc, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -95,7 +95,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.01
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

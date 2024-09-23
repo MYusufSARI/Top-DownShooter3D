@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,7 +20,7 @@ namespace TPS.UI
 
 
 
-        private void Awake()
+       private void Awake()
         {
             _canvas = GetComponent<Canvas>();
             _raycaster = GetComponent<GraphicRaycaster>();

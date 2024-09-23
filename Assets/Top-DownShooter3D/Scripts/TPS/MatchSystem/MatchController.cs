@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace TPS.MatchSystem
@@ -17,11 +15,9 @@ namespace TPS.MatchSystem
         private void Awake()
         {
             _matchInstance.Reset();
-
             _matchInstance.Player = _player;
         }
-
-
+        
         private void Update()
         {
             _matchInstance.AddTime(Time.deltaTime);

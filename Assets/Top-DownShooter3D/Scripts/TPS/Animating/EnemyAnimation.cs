@@ -1,17 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace TPS.Animating
 {
     public class EnemyAnimation : MonoBehaviour
     {
-        [Header("Elements")]
+        [Header("Data")]
         [SerializeField] private Animator _animator;
 
         [Header("Readonly")]
         private static readonly int Attack = Animator.StringToHash("Attack");
         private static readonly int IsDead = Animator.StringToHash("IsDead");
+
 
 
         public void PlayAttackAnimation()

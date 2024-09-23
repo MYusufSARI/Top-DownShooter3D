@@ -1,10 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using TPS.AI;
+using TPS.Mediators;
 using TPS.UI.Pagination;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace TPS.UI.Pages
@@ -13,25 +11,27 @@ namespace TPS.UI.Pages
     {
         [Header("Elements")]
         [SerializeField] private Button _playButton;
+        [SerializeField] private Animator _animator;
 
 
 
         protected override void OnOpened()
         {
-            _playButton.onClick.AddListener(OnPlayButtonPressed);
+            _playButton.onClick.AddListener(OnPlayButtonClicked);
+
+            _animator.Play("Game");
         }
-    
+
 
         protected override void OnClosed()
         {
-            _playButton.onClick.RemoveListener(OnPlayButtonPressed);
+            _playButton.onClick.RemoveListener(OnPlayButtonClicked);
         }
 
 
-        private void OnPlayButtonPressed()
+        private void OnPlayButtonClicked()
         {
-            SceneManager.LoadScene(0);
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene("Loading");
         }
     }
 }
