@@ -5,11 +5,21 @@ using UnityEngine.UI;
 
 namespace TPS.UI.Pagination
 {
+    [RequireComponent(typeof(Canvas))]
+    [RequireComponent(typeof(GraphicRaycaster))]
     public abstract class Page : MonoBehaviour
     {
         [Header("Elements")]
         private Canvas _canvas;
         private GraphicRaycaster _raycaster;
+
+
+
+        private void Awake()
+        {
+            _canvas = GetComponent<Canvas>();
+            _raycaster = GetComponent<GraphicRaycaster>();
+        }
 
 
 

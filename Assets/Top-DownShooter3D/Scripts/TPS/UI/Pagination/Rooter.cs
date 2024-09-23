@@ -4,16 +4,8 @@ using UnityEngine;
 
 namespace TPS.UI.Pagination
 {
-    public class Rooter : Page
+    public class Rooter : MonoBehaviour
     {
-        protected override void OnClosed()
-        {
-            
-        }
 
-        protected override void OnOpened()
-        {
-
-        }
     }
 }
