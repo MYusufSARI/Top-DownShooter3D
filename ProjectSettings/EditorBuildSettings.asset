@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Top-DownShooter3D/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Top-DownShooter3D/Scenes/MenuScene.unity
+    guid: a5f2cebdf0a63416fb462b0d01d60d0d
+  - enabled: 1
+    path: Assets/Top-DownShooter3D/Scenes/GameScene.unity
+    guid: 73372c540d907452a9fdb2d262fab810
   m_configObjects: {}
