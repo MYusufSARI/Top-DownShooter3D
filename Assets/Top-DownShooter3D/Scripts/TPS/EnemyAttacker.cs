@@ -7,43 +7,37 @@ namespace TPS
 {
     public class EnemyAttacker : MonoBehaviour, IDamageExecutor
     {
-        [Header("Settings")]
-        [SerializeField] private float _damage;
-        [SerializeField] private float _attackRate;
-        [SerializeField] private float _range;
+        [SerializeField]
+        private float _damage;
+
+        [SerializeField]
+        private float _range;
+        public float Range => _range;
+
+        [SerializeField]
+        private float _attackRate;
 
         private float _lastAttack;
-
-        [Header("Data")]
-        private IDamageable _currentTarget;
-
-
-        public float Range => _range;
         public bool CanAttack => Time.time > _lastAttack + _attackRate;
+
         public bool IsCurrentlyAttacking { get; private set; }
 
-        public event Action<IDamageable> OnAttacked;
+        public event Action<IDamageable> Attacked;
 
-
+        private IDamageable _currentTarget;
 
         public void Attack(IDamageable target)
         {
-            if (!CanAttack)
-                return;
-
+            if (!CanAttack) return;
             _lastAttack = Time.time;
-
-            OnAttacked?.Invoke(target);
-
+            Attacked?.Invoke(target);
             _currentTarget = target;
             IsCurrentlyAttacking = true;
         }
 
-
         public void ExecuteDamage()
         {
-            if (_currentTarget == null)
-                return;
+            if (_currentTarget == null) return;
 
             if (_currentTarget is MonoBehaviour mb)
             {
@@ -52,7 +46,6 @@ namespace TPS
                     _currentTarget.ApplyDamage(_damage);
                 }
             }
-
             else
             {
                 _currentTarget.ApplyDamage(_damage);

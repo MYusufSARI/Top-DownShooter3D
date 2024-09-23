@@ -37,7 +37,7 @@ namespace TPS.MatchSystem
         }
 
 
-        private void CreatePoolObjects()
+        public void CreatePoolObjects()
         {
             int totalSpawnCount = 0;
 

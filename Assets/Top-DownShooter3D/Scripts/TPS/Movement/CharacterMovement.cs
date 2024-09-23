@@ -13,8 +13,8 @@ namespace TPS.Movement
         [Header("Settings")]
         [SerializeField] private float _movementSpeed = 4f;
 
-        public Vector2 MovementInput { get; set; }
         public Vector3 ExternalForces { get; set; }
+        public Vector2 MovementInput { get; set; }
 
         public float MovementSpeed
         {

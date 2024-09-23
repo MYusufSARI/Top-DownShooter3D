@@ -10,59 +10,53 @@ namespace TPS.Mediatiors
 {
     public class EnemyMediator : MonoBehaviour, IDamageable
     {
-        [Header("Settings")]
-        [SerializeField] private float _health;
+        [SerializeField]
+        private float _health;
 
-        [Header("Data")]
         private ItemDropper _itemDropper;
-        private EnemyAttacker _enemyAttacker;
+
+        private EnemyAttacker _attacker;
         private EnemyAnimation _enemyAnimation;
+
         private AIController _aiController;
-        private EnemySFX _enemySFX;
 
-
+        private EnemySFX _sfx;
 
         private void Awake()
         {
             _itemDropper = GetComponent<ItemDropper>();
-            _enemyAttacker = GetComponent<EnemyAttacker>();
+            _attacker = GetComponent<EnemyAttacker>();
             _enemyAnimation = GetComponent<EnemyAnimation>();
             _aiController = GetComponent<AIController>();
-            _enemySFX = GetComponent<EnemySFX>();
+            _sfx = GetComponent<EnemySFX>();
         }
-
 
         private void OnEnable()
         {
-            _enemyAttacker.OnAttacked += EnemyAttacker_Attacked;
+            _attacker.Attacked += OnAttackerAttacked;
         }
-
 
         private void OnDisable()
         {
-            _enemyAttacker.OnAttacked -= EnemyAttacker_Attacked;
+            _attacker.Attacked -= OnAttackerAttacked;
         }
 
-
-        private void EnemyAttacker_Attacked(IDamageable obj)
+        private void OnAttackerAttacked(IDamageable obj)
         {
             _enemyAnimation.PlayAttackAnimation();
-
-            _enemySFX.PlayAttackSFX();
+            _sfx.PlayAttackSFX();
         }
-
 
         public void ApplyDamage(float damage, GameObject causer = null)
         {
             _health -= damage;
-
-            _enemySFX.PlayDamagedSFX();
-
+            _sfx.PlayDamagedSFX();
             if (_health <= 0)
             {
                 _enemyAnimation.PlayDeathAnimation();
 
                 _aiController.enabled = false;
+
                 StartCoroutine(DisableDelayed());
 
                 if (_itemDropper)
@@ -77,7 +71,7 @@ namespace TPS.Mediatiors
         {
             yield return new WaitForSeconds(2);
 
-                gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 }

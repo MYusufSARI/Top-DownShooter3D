@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TPS.AI;
 using TPS.UI.Pagination;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -29,7 +30,8 @@ namespace TPS.UI.Pages
 
         private void OnPlayButtonPressed()
         {
-            SceneManager.LoadScene(1)
+            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
     }
 }
