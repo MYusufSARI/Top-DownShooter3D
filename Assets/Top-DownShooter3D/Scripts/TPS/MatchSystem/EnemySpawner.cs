@@ -56,7 +56,7 @@ namespace TPS.MatchSystem
                 {
                     var objectToSpawn = entry.Prefabs[Random.Range(0, entry.Prefabs.Length)];
 
-                    var inst = Instantiate(objectToSpawn, Vector3.zero, Quaternion.identity);
+                    GameObject inst = Instantiate(objectToSpawn, Vector3.zero, Quaternion.identity);
                     inst.SetActive(false);
 
                     _pooledObjects[currentSpawnIndex] = inst;

@@ -27,6 +27,9 @@ namespace TPS.MatchSystem
                     spawnEntry = entry;
                     return true;
                 }
+
+                var x = new SpawnEntry();
+                var y = x;
             }
 
             spawnEntry = new SpawnEntry();
@@ -38,16 +41,13 @@ namespace TPS.MatchSystem
     [System.Serializable]
     public struct SpawnEntry
     {
-        [Header("Settings")]
         [SerializeField] private int _duration;
-        [SerializeField] private int _spawnCount;
-
         public int Duration => _duration;
+
+        [SerializeField] private int _spawnCount;
         public int SpawnCount => _spawnCount;
 
-        [Header("Elements")]
         [SerializeField] private GameObject[] _prefabs;
-
         public GameObject[] Prefabs => _prefabs;
     }
 }

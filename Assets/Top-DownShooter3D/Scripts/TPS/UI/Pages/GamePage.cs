@@ -29,7 +29,7 @@ namespace TPS.UI.Pages
 
         private void OnPlayButtonPressed()
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(1)
         }
     }
 }

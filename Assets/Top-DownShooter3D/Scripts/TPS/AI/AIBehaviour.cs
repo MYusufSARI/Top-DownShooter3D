@@ -9,20 +9,16 @@ namespace TPS.AI
 {
     public abstract class AIBehaviour : ScriptableObject
     {
-        public abstract void Begin(AIController aIController);
+        public abstract void Begin(AIController controller);
 
-        public  void OnUpdate(AIController aIController)
+        public void OnUpdate(AIController controller)
         {
-            Profiler.BeginSample($"AI Behaviour({name}).Execute");
-
-            Execute(aIController);
-
+            Profiler.BeginSample($"AIBehaviour({name}).Execute");
+            Execute(controller);
             Profiler.EndSample();
         }
-
-        public abstract void End(AIController aIController);
-
-        protected abstract void Execute(AIController aIController);
+        public abstract void End(AIController controller);
+        protected abstract void Execute(AIController controller);
 
         public virtual AIState CreateState()
         {
