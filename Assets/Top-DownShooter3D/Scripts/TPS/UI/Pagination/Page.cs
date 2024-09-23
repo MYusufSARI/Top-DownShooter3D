@@ -22,7 +22,6 @@ namespace TPS.UI.Pagination
         }
 
 
-
         public void Open()
         {
             _canvas.enabled = true;

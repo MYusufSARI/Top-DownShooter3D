@@ -5,17 +5,16 @@ using UnityEngine;
 
 namespace TPS.UI.Pages
 {
-    public class GamePage : Page
+    public class ArmoryPage : Page
     {
-        protected override void OnOpened()
-        {
-            
-        }
-    
-
         protected override void OnClosed()
         {
             
+        }
+
+        protected override void OnOpened()
+        {
+
         }
     }
 }
